@@ -1,0 +1,194 @@
+[
+	{
+		"product_id": "01",
+		"title": "Tesla Model Y",
+		"location": "Dhaka",
+		"image": "https://i.ibb.co/6rzFBZM/modelY.jpg",
+		"orginalPrice": 70000,
+		"resalePrice": 30000,
+
+		"used": 2,
+		"role": ["User", "Seller"]
+	},
+	{
+		"product_id": "01",
+		"title": "Tesla Model X",
+		"location": "Cumilla",
+		"image": "https://i.ibb.co/CKS16tz/modelX.jpg",
+		"orginalPrice": 50000,
+		"resalePrice": 40000,
+		"used": 3,
+		"role": ["User", "Seller"]
+	},
+
+	{
+		"product_id": "01",
+		"title": "Tesla Model S",
+		"location": "Bandarban",
+		"image": "https://i.ibb.co/qmJDdmk/modelS.jpg",
+		"orginalPrice": 60000,
+		"resalePrice": 50000,
+		"used": 4,
+		"role": ["User", "Seller"]
+	},
+
+	{
+		"product_id": "02",
+		"title": "BMW X1",
+		"location": "Dubai",
+		"image": "https://i.ibb.co/6RXz0Nx/bmwx1.jpg",
+		"orginalPrice": 70000,
+		"resalePrice": 50000,
+		"used": 3,
+		"role": ["User", "Seller"]
+	},
+	{
+		"product_id": "02",
+		"title": "BMW X7",
+		"location": "Dubai",
+		"image": "https://i.ibb.co/ysRDCVQ/bmwx7.jpg",
+		"orginalPrice": 77000,
+		"resalePrice": 65000,
+		"used": 5,
+		"role": ["User", "Seller"]
+	},
+	{
+		"product_id": "02",
+		"title": "BMW X5",
+		"location": "Dubai",
+		"image": "https://i.ibb.co/ZhQHq2h/bmwx5.jpg",
+		"orginalPrice": 45000,
+		"resalePrice": 40000,
+		"used": 5,
+		"role": ["User", "Seller"]
+	},
+
+	{
+		"product_id": "03",
+		"title": "Porsche 911",
+		"location": "Kuakata",
+		"image": "https://i.ibb.co/vsWCDmw/Porsche-911.jpg",
+		"orginalPrice": 25000,
+		"resalePrice": 20000,
+		"used": 7
+	},
+	{
+		"product_id": "03",
+		"title": "Porsche Cayenne",
+		"location": "Kuakata",
+		"image": "https://i.ibb.co/BjM3pWT/Porsche-Cayenne.jpg",
+		"orginalPrice": 16000,
+		"resalePrice": 13000,
+		"used": 8
+	},
+	{
+		"product_id": "03",
+		"title": "Porsche Taycan",
+		"location": "Kuakata",
+		"image": "https://i.ibb.co/0CHsJFS/Porsche-Taycan.jpg",
+		"orginalPrice": 35000,
+		"resalePrice": 30000,
+		"used": 4
+	},
+
+	{
+		"brand": "Tesla",
+		"logo": "https://i.ibb.co/JncmJ5p/teslalogo.jpg",
+		"product_id": "01",
+		"products": [
+			{
+				"title": "Tesla Model Y",
+				"location": "Dhaka",
+				"image": "https://i.ibb.co/6rzFBZM/modelY.jpg",
+				"orginal-price": 70000,
+				"resale-price": 30000,
+
+				"used": 2,
+				"role": ["User", "Seller"]
+			},
+			{
+				"title": "Tesla Model X",
+				"location": "Cumilla",
+				"image": "https://i.ibb.co/CKS16tz/modelX.jpg",
+				"orginal-price": 50000,
+				"resale-price": 40000,
+				"used": 3,
+				"role": ["User", "Seller"]
+			},
+			{
+				"title": "Tesla Model S",
+				"location": "Bandarban",
+				"image": "https://i.ibb.co/qmJDdmk/modelS.jpg",
+				"orginal-price": 60000,
+				"resale-price": 50000,
+				"used": 4,
+				"role": ["User", "Seller"]
+			}
+		]
+	},
+	{
+		"brand": "BMW",
+		"logo": "https://i.ibb.co/JzL7Ddw/bmwlogo.jpg",
+		"product_id": "02",
+		"products": [
+			{
+				"title": "BMW X1",
+				"location": "Dubai",
+				"image": "https://i.ibb.co/6RXz0Nx/bmwx1.jpg",
+				"orginal-price": 70000,
+				"resale-price": 50000,
+				"used": 3,
+				"role": ["User", "Seller"]
+			},
+			{
+				"title": "BMW X7",
+				"location": "Dubai",
+				"image": "https://i.ibb.co/ysRDCVQ/bmwx7.jpg",
+				"orginal-price": 77000,
+				"resale-price": 65000,
+				"used": 5,
+				"role": ["User", "Seller"]
+			},
+			{
+				"title": "BMW X5",
+				"location": "Dubai",
+				"image": "https://i.ibb.co/ZhQHq2h/bmwx5.jpg",
+				"orginal-price": 45000,
+				"resale-price": 40000,
+				"used": 5,
+				"role": ["User", "Seller"]
+			}
+		]
+	},
+	{
+		"brand": "Porsche",
+		"logo": "https://i.ibb.co/0csxV8H/porchelogo.jpg",
+		"product_id": "03",
+		"products": [
+			{
+				"title": "Porsche 911",
+				"location": "Kuakata",
+				"image": "https://i.ibb.co/vsWCDmw/Porsche-911.jpg",
+				"orginal-price": 25000,
+				"resale-price": 20000,
+				"used": 7
+			},
+			{
+				"title": "Porsche Cayenne",
+				"location": "Kuakata",
+				"image": "https://i.ibb.co/BjM3pWT/Porsche-Cayenne.jpg",
+				"orginal-price": 16000,
+				"resale-price": 13000,
+				"used": 8
+			},
+			{
+				"title": "Porsche Taycan",
+				"location": "Kuakata",
+				"image": "https://i.ibb.co/0CHsJFS/Porsche-Taycan.jpg",
+				"orginal-price": 35000,
+				"resale-price": 30000,
+				"used": 4
+			}
+		]
+	}
+]

@@ -1,0 +1,17 @@
+[
+    {
+        "category_id": "01",
+        "brand" : "Tesla",
+        "logo":"https://i.ibb.co/JncmJ5p/teslalogo.jpg"  
+    },
+    {
+        "category_id": "02",
+        "brand" : "BMW",
+        "logo":"https://i.ibb.co/JzL7Ddw/bmwlogo.jpg" 
+    },
+    {
+        "category_id": "03",
+        "brand" : "Porsche",
+        "logo" : "https://i.ibb.co/0csxV8H/porchelogo.jpg"  
+    }
+]

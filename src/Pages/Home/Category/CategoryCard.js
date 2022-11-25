@@ -12,8 +12,8 @@ const CategoryCard = ({category}) => {
 				<div className="card-body">
 					<h2 className="card-title">{brand}</h2>
 					
-					<div className="card-actions justify-end">
-						<Link to={`/brands/${category_id}`}><button className="btn bg-red-700 hover:bg-red-500 ">See All</button></Link>
+					<div className="card-actions justify-center">
+						<Link to={`/category/${category_id}`}><button className="btn bg-red-700 hover:bg-red-500 ">See All</button></Link>
 					</div>
 				</div>
 			</div>

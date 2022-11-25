@@ -36,7 +36,7 @@ const SignUp = () => {
         createUser(email, password)
 			.then((result) => {
                 // get token
-				// setAuthToken(result.user)
+				setAuthToken(result.user)
 				const user = result.user;
 				console.log(user);
 				form.reset();
@@ -46,6 +46,8 @@ const SignUp = () => {
                 toast.success('successfully sing up')
                 const userInfo = {
 					displayName: name,
+					role : role,
+					email : email
 				};
 
                 updateUser(userInfo)
@@ -69,7 +71,7 @@ const SignUp = () => {
 			const user = result.user;
 			console.log(user);
 			// get token
-			// setAuthToken(result.user)
+			setAuthToken(result.user)
 			navigate(from, { replace: true });
 		});
 	};
@@ -105,14 +107,10 @@ const SignUp = () => {
 					>
                         <option selected>User</option>
                         <option>Seller</option>
-						{/* {specialties.map((specialty) => (
-							<option key={specialty._id} value={specialty.name}>
-								{specialty.name}
-							</option>
-						))} */}
+						
 					</select>
 
-					{/* {error && <p className='text-red-500'>{error}</p>} */}
+					{error && <p className='text-red-500'>{error}</p>}
 				</div>
 							
 							<div className="form-control">
@@ -150,10 +148,13 @@ const SignUp = () => {
 							<div className="form-control mt-6">
 								<button className="btn btn-primary">{ loading? <SmallSpinner></SmallSpinner> : 'Sign Up'}</button>
 							</div>
-							<div className="form-control mt-6">
-								<button onClick={handleGoogleSignIn} className="btn btn-secondary">Google sign in</button>
-							</div>
+							
 						</form>
+						<small><p>New to doctors portal? <Link className="link link-hover text-secondary" to='/login'>Login</Link></p></small>
+                		<div className="divider">OR</div>
+						<div className="form-control mt-6">
+								<button onClick={handleGoogleSignIn} className="btn btn-secondary">Google sign in</button>
+						</div>
 					</div>
 				
 			</div>

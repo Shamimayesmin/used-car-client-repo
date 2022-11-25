@@ -56,7 +56,7 @@ const Login = () => {
         <div className="h-[800px] flex justify-center items-center">
 				
         <div className="w-96 rounded-lg p-7 shadow-2xl">
-        <h2 className="text-2xl text-center">Sign Up</h2>
+        <h2 className="text-2xl text-center">Login</h2>
             <form onSubmit={handleLogin} className="card-body">
               
                 <div className="form-control">
@@ -94,10 +94,13 @@ const Login = () => {
                 <div className="form-control mt-6">
                     <button className="btn btn-primary">{ loading? <SmallSpinner></SmallSpinner> : 'Login'}</button>
                 </div>
+                
+            </form>
+            <small><p>New to doctors portal? <Link className="link link-hover text-secondary" to='/signup'>Create new account</Link></p></small>
+                <div className="divider">OR</div>
                 <div className="form-control mt-6">
                     <button onClick={handleGoogleSignIn} className="btn btn-secondary">Google sign in</button>
                 </div>
-            </form>
         </div>
     
 </div>

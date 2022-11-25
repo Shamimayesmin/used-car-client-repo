@@ -3,28 +3,29 @@ import React, { useState } from 'react';
 import { useLoaderData } from 'react-router-dom';
 import BookingModal from '../BookingModal/BookingModal';
 import ProductCard from './ProductCard';
+import { format } from "date-fns";
 
 const Products = () => {
     const allCategory = useLoaderData()
     // const all = data.products
-    
-    console.log(allCategory);
+    // const date = format(selectedDate, "PP");
+    // console.Flog(allCategory);
     const [addProducts, setAddProducts] = useState(null)
 
-    // const {
-	// 	data: category = [],
-	// 	refetch,
-	// 	isLoading,
-	// } = useQuery({
-	// 	queryKey: ["appointmentOptions",],
-	// 	queryFn: async () => {
-	// 		const res = await fetch(
-	// 			`https://doctors-portal-server-pearl.vercel.app/v2/appointmentOptions`
-	// 		);
-	// 		const data = await res.json();
-	// 		return data;
-	// 	},
-	// });
+    const {
+		data: category = [],
+		refetch,
+		isLoading,
+	} = useQuery({
+		queryKey: ["appointmentOptions",],
+		queryFn: async () => {
+			const res = await fetch(
+				`http://localhost:5000/brands`
+			);
+			const data = await res.json();
+			return data;
+		},
+	});
 
 
 
@@ -32,7 +33,7 @@ const Products = () => {
         <section>
             <div className="container flex flex-col justify-center p-6 mx-auto sm:py-12 lg:py-24 lg:flex-row lg:justify-between sm:w-full">
 				
-				<div class="justify-center mx-auto rounded-lg">
+				<div className="justify-center mx-auto rounded-lg">
 					<h3 className="text-2xl font-mono p-4 text-white">
 						Our All Category: {allCategory.length}
 					</h3>

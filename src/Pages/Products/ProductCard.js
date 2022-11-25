@@ -4,7 +4,7 @@ import React from "react";
 const ProductCard = ({ item ,setAddProducts}) => {
 	const { image, location, orginalPrice, resalePrice, title ,role, description,used} = item;
 
-	console.log(item);
+	// console.log(item);
 	// const {} = item
 	return (
 		<div className="card w-96 bg-base-100 shadow-xl">
@@ -28,9 +28,7 @@ const ProductCard = ({ item ,setAddProducts}) => {
                     <div className="badge badge-outline">location :{location}</div>
 					
 				</div>
-				{/* <div className="card-actions justify-center mt-5">
-					<button className="btn  bg-red-600  hover:bg-orange-500">Book Now</button>
-				</div> */}
+				
                 <div className="card-actions justify-center mt-5">
 						
                         <label onClick={()=> setAddProducts(item)} htmlFor="booking-modal" className="btn btn-error bg-gradient-to-r from-error to-secondary text-white">Book Now</label>

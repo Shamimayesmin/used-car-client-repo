@@ -4,6 +4,7 @@ import { AuthContext } from '../../context/AuthProvider';
 
 const BookingModal = ({addProducts,setAddProducts}) => {
     const { title,location,resalePrice} = addProducts
+    // console.log(addProducts);
     const {user} = useContext(AuthContext)
     console.log(user);
 
@@ -42,7 +43,7 @@ const BookingModal = ({addProducts,setAddProducts}) => {
 				console.log(data);
 				if (data.acknowledged) {
 					setAddProducts(null);
-					toast.success("booking confirmed");
+					toast.success("The item is booked");
 					// refetch();
 				} else {
 					toast.error(data.message);
@@ -71,25 +72,21 @@ const BookingModal = ({addProducts,setAddProducts}) => {
 					>
 						<input
 							type="text"
-                            placeholder="product name"
+                            placeholder="location"
+                            defaultValue={location}
 							// value={date}
 							className="input input-bordered w-full"
-							// disabled
+							disabled
 						/>
 						<input
 							type="text"
                             placeholder="price"
+                            defaultValue={resalePrice}
 							// value={date}
 							className="input input-bordered w-full"
-							// disabled
+							disabled
 						/>
-						{/* <select name="slot" className="select select-bordered w-full">
-							{slots.map((slot, i) => (
-								<option value={slot} key={i}>
-									{slot}
-								</option>
-							))}
-						</select> */}
+						
 						<input
 							name="name"
 							type="text"
@@ -102,8 +99,8 @@ const BookingModal = ({addProducts,setAddProducts}) => {
 							name="email"
 							type="email"
 							placeholder="Email address"
-							// defaultValue={user?.email}
-							// readOnly
+							defaultValue={user?.email}
+							readOnly
 							className="input input-bordered w-full"
 						/>
 						<input

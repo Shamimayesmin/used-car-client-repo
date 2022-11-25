@@ -1,7 +1,7 @@
 import React, { useContext, useState } from "react";
 import toast from "react-hot-toast";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { setAuthToken } from "../../api/auth";
+import { saveUser, setAuthToken } from "../../api/auth";
 import SmallSpinner from "../../components/Spinner/SmallSpinner";
 import { AuthContext } from "../../context/AuthProvider";
 // import { AuthContext } from "../../context/AuthProvider";
@@ -20,7 +20,7 @@ const SignUp = () => {
 	const navigate = useNavigate();
 	const location = useLocation();
 	const from = location.state?.from?.pathname || "/";
-
+	const [createUserEmail, setCreateUserEmail] = useState("");
 	const handleSignUp = (event) => {
         console.log(event);
 		event.preventDefault();
@@ -46,13 +46,13 @@ const SignUp = () => {
                 toast.success('successfully sing up')
                 const userInfo = {
 					displayName: name,
-					role : role,
-					email : email
+					userRole : role,
+					
 				};
 
                 updateUser(userInfo)
 					.then(() => {
-                        
+                        saveUser(name,email)
 						// console.log(user);
 					})
 					.catch((err) => console.log(err));
@@ -74,6 +74,23 @@ const SignUp = () => {
 			setAuthToken(result.user)
 			navigate(from, { replace: true });
 		});
+	};
+
+
+	const saveUser = (name, email,role) => {
+		const user = { name, email ,role};
+		fetch("http://localhost:5000/users", {
+			method: "POST",
+			headers: {
+				"content-type": "application/json",
+			},
+			body: JSON.stringify(user),
+		})
+			.then((res) => res.json())
+			.then((data) => {
+				// console.log('save user',data);
+				setCreateUserEmail(email);
+			});
 	};
 	return (
 		<div>

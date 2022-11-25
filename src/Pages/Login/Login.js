@@ -29,7 +29,7 @@ const Login = () => {
             console.log(user);
             toast.success('login successful')
 			// get token
-			// setAuthToken(result.user)
+			setAuthToken(result.user)
             navigate(from,{replace:true})
         })
 		.catch(err => {
@@ -47,7 +47,7 @@ const Login = () => {
         .then(result =>{
             const user = result.user
             console.log(user);
-			// setAuthToken(result.user)
+			setAuthToken(result.user)
 			navigate(from,{replace:true})
         })
     }

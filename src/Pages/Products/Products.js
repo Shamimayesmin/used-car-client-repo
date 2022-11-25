@@ -12,20 +12,20 @@ const Products = () => {
     // console.Flog(allCategory);
     const [addProducts, setAddProducts] = useState(null)
 
-    const {
-		data: category = [],
-		refetch,
-		isLoading,
-	} = useQuery({
-		queryKey: ["appointmentOptions",],
-		queryFn: async () => {
-			const res = await fetch(
-				`http://localhost:5000/brands`
-			);
-			const data = await res.json();
-			return data;
-		},
-	});
+    // const {
+	// 	data: category = [],
+	// 	refetch,
+	// 	isLoading,
+	// } = useQuery({
+	// 	queryKey: ["appointmentOptions",],
+	// 	queryFn: async () => {
+	// 		const res = await fetch(
+	// 			`http://localhost:5000/brands`
+	// 		);
+	// 		const data = await res.json();
+	// 		return data;
+	// 	},
+	// });
 
 
 

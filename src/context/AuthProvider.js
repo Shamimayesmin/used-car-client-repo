@@ -26,7 +26,6 @@ const AuthProvider = ({children}) => {
   }
 
   
-
   // 4. Google Signin
   const signInWithGoogle = () => {
     setLoading(true)

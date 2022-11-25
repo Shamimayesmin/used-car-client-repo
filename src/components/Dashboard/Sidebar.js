@@ -6,7 +6,7 @@ import AdminMenu from './AdminMenu';
 import SellerMenu from './SellerMenu';
 import BuyersMenu from './BuyersMenu';
 
-const Sidebar = () => {
+const Sidebar = ({role, loading}) => {
     const { user, logout } = useContext(AuthContext)
   const [isActive, setActive] = useState('false')
 //   console.log(role)
@@ -71,14 +71,14 @@ const Sidebar = () => {
             {/* Nav Items */}
             <div className='flex flex-col justify-between flex-1 mt-6'>
               <nav>
-                {/* {role && role !== 'requested' ? (
-                  <>{role === 'admin' ? <AdminMenu /> : <HostMenu />} </>
+                {role && role !== 'Seller' ? (
+                  <>{role === 'User' ? <AdminMenu /> : <SellerMenu />} </>
                 ) : (
-                  <UserMenu />
-                )} */}
-                <AdminMenu />
+                    <BuyersMenu/>
+                )}
+                {/* <AdminMenu />
                 <SellerMenu />
-                <BuyersMenu></BuyersMenu>
+                <BuyersMenu></BuyersMenu> */}
               </nav>
   
             </div>

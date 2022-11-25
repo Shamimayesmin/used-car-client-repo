@@ -27,9 +27,6 @@ const BookingModal = ({addProducts,setAddProducts}) => {
 			price : resalePrice,
 		};
 
-		// TODO : send data to the server
-		// and once data is saved then close the modal
-		// and display toast
 
 		fetch("http://localhost:5000/bookings", {
 			method: "POST",

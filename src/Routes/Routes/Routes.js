@@ -25,7 +25,12 @@ const router = createBrowserRouter([
             },
             {
                 path : '/signup',
-                element : <SignUp></SignUp>
+                element : <SignUp></SignUp>,
+                loader: () =>
+					fetch(
+						'http://localhost:5000/brands'
+					)
+
             },
             {
                 path : '/blog',
@@ -56,7 +61,7 @@ const router = createBrowserRouter([
         path: "/dashboard",
         element : <DashboardLayout></DashboardLayout>,
         children : [
-            
+
         ]
     }
 ])

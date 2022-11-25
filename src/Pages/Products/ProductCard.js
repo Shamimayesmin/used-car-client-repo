@@ -24,8 +24,8 @@ const ProductCard = ({ item ,setAddProducts}) => {
 				<div className="card-actions justify-center items-center">
 					
 					
-					<div className="badge badge-outline">Used:{used}</div>
-                    <div className="badge badge-outline">location :{location}</div>
+					<div className="badge badge-outline">Used : {used} months</div>
+                    <div className="badge badge-outline">location : {location}</div>
 					
 				</div>
 				

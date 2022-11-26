@@ -20,7 +20,7 @@ const BuyersMenu = () => {
 
         <span className='mx-4 font-medium'>My orders</span>
       </NavLink>
-
+{/* 
       <NavLink
         to='add-home'
         className={({ isActive }) =>
@@ -32,7 +32,7 @@ const BuyersMenu = () => {
         <UserPlusIcon className='w-5 h-5' />
 
         <span className='mx-4 font-medium'>Add Home</span>
-      </NavLink>
+      </NavLink> */}
     </>
     );
 };

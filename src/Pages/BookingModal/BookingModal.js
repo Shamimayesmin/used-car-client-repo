@@ -70,16 +70,16 @@ const BookingModal = ({addProducts,setAddProducts}) => {
 						<input
 							type="text"
                             placeholder="location"
-                            defaultValue={location}
-							// value={date}
+                            // defaultValue={location}
+							value={location}
 							className="input input-bordered w-full"
 							disabled
 						/>
 						<input
 							type="text"
                             placeholder="price"
-                            defaultValue={resalePrice}
-							// value={date}
+                            // defaultValue={resalePrice}
+							value={resalePrice}
 							className="input input-bordered w-full"
 							disabled
 						/>

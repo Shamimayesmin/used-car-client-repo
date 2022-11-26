@@ -114,8 +114,8 @@ const SignUp = () => {
 								className="select select-bordered w-full max-w-xs"
 							>
 								
-								<option selected>User</option>
-								<option>Seller</option>
+								<option selected>Seller</option>
+								<option>Buyer</option>
 							</select>
 
 							{error && <p className="text-red-500">{error}</p>}

@@ -12,6 +12,7 @@ const Navbar = () => {
 		logout()
 			.then(() => {})
 			.catch((err) => console.error(err));
+			navegate('/login')
 	};
 
 

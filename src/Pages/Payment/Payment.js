@@ -1,30 +1,35 @@
+import { Elements } from '@stripe/react-stripe-js';
+import { loadStripe } from '@stripe/stripe-js';
 import React from 'react';
-import { useLoaderData } from 'react-router-dom';
+import { useLoaderData, useNavigation } from 'react-router-dom';
+import Loading from '../../components/Spinner/Loading';
+import PaymentCheckForm from './PaymentCheckForm';
+const stripePromise = loadStripe(process.env.REACT_APP_STRIPE_PK);
 
 const Payment = () => {
 
     const booking = useLoaderData();
-    // const navigation = useNavigation()
+    const navigation = useNavigation()
     
 	console.log("booking is", booking);
-	const { treatment, price, appointmentDate, slot } = booking;
+	const { productName, price} = booking;
 
 
-    // if(navigation.state === 'loading'){
-    //     return <Loading></Loading>
-    // }
+    if(navigation.state === 'loading'){
+        return <Loading></Loading>
+    }
 
     return (
-        <div>
-			<h2 className="text-3xl">Payment for {treatment}</h2>
-			<p className="text-xl">
-				Please pay <strong>${price}</strong> for your appointment on{slot}
+        <div className='mt-7'>
+			<h2 className="text-2xl text-center">Payment for {productName}</h2>
+			<p className="text-center">
+				Please pay <strong>${price}</strong> for purchase this item
 			</p>
-			{/* <div className="w-96 my-14">
+			<div className="w-96 my-14 mx-auto justify-center">
 				<Elements stripe={stripePromise}>
-					<CheckoutForm booking={booking}/>
+					<PaymentCheckForm booking={booking}/>
 				</Elements>
-			</div> */}
+			</div>
 		</div>
     );
 };

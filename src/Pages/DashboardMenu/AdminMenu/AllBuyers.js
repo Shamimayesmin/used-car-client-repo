@@ -19,7 +19,7 @@ const AllBuyers = () => {
 			{
 				method: "DELETE",
 				headers: {
-					authorization: `bearer ${localStorage.getItem("usedcar-token")}`,
+					authorization: `bearer ${localStorage.getItem("usedcarToken")}`,
 				},
 			}
 		)

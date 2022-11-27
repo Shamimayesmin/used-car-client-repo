@@ -1,7 +1,7 @@
 import React from "react";
 
 const Seller = ({ user, i ,handleDeleteSeller}) => {
-    console.log(user);
+    // console.log(user);
     const {email,name,role,_id} = user
 	return (
 		<>

@@ -15,7 +15,7 @@ const MyProduct = () => {
 					"http://localhost:5000/products",
 					{
 						headers: {
-							authorization: `bearer ${localStorage.getItem("usedcar-token")}`,
+							authorization: `bearer ${localStorage.getItem("usedcarToken")}`,
 						},
 					}
 				);
@@ -27,7 +27,7 @@ const MyProduct = () => {
 	});
     return (
         <div>
-			<h2 className="text-3xl text-center"> My products: {addproducts?.length}</h2>
+			<h2 className="text-2xl text-center m-3 text-red-600"> My products: {addproducts?.length}</h2>
 			<div className="overflow-x-auto">
 				<table className="table w-full">
 					<thead>

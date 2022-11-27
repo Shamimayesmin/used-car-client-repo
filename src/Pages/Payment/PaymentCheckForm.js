@@ -21,7 +21,7 @@ const PaymentCheckForm = ({ booking }) => {
 				method: "POST",
 				headers: {
 					"Content-Type": "application/json",
-					authorization: `bearer ${localStorage.getItem("usedcar-token")}`,
+					authorization: `bearer ${localStorage.getItem("usedcarToken")}`,
 				},
 				body: JSON.stringify({ price }),
 			}
@@ -90,7 +90,7 @@ const PaymentCheckForm = ({ booking }) => {
 				method: "POST",
 				headers: {
 					"content-type": "application/json",
-					authorization: `bearer ${localStorage.getItem("usedcar-token")}`,
+					authorization: `bearer ${localStorage.getItem("usedcarToken")}`,
 				},
 				body: JSON.stringify(payment),
 			})

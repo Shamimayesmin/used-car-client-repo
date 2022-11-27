@@ -14,6 +14,8 @@ import Payment from "../../Pages/Payment/Payment";
 import Products from "../../Pages/Products/Products";
 import ErrorPage from "../../Pages/Shared/ErrorPage/ErrorPage";
 import SignUp from "../../Pages/SignUp/SignUp";
+import AdminRoute from "../AdminRoute/AdminRoute";
+import PrivateRoute from "../PrivateRoute/PrivateRoute";
 
 const router = createBrowserRouter([
     {
@@ -65,6 +67,7 @@ const router = createBrowserRouter([
 
     {
         path: "/dashboard",
+        // element : <PrivateRoute><DashboardLayout></DashboardLayout></PrivateRoute>,
         element : <DashboardLayout></DashboardLayout>,
         children : [
             {

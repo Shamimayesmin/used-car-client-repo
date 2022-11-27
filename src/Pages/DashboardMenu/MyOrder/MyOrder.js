@@ -15,7 +15,7 @@ const MyOrder = () => {
 		queryFn: async () => {
 			const res = await fetch(url, {
 				headers: {
-					authorization: `bearer ${localStorage.getItem("usedcar-token")}`,
+					authorization: `bearer ${localStorage.getItem("usedcarToken")}`,
 				},
 			});
 			const data = await res.json();
@@ -24,7 +24,7 @@ const MyOrder = () => {
 	});
     return (
         <div>
-			<h2 className="text-3xl mb-4">My Order</h2>
+			<h2 className="text-2xl mb-4 text-center text-red-600">My Order</h2>
 			<div className="overflow-x-auto">
 				<table className="table w-full">
 					<thead>

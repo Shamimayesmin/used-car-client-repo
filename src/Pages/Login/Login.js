@@ -5,6 +5,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { setAuthToken } from "../../api/auth";
 import SmallSpinner from "../../components/Spinner/SmallSpinner";
 import { AuthContext } from "../../context/AuthProvider";
+import useToken from "../../hook/useToken";
 
 const Login = () => {
     const { signin,signInWithGoogle,loading,
@@ -17,6 +18,16 @@ const Login = () => {
         const from = location.state?.from?.pathname || '/'
 
 
+        // jwt token get :
+	const [logingUserEmail, setLogingUserEmail] = useState('')
+
+	const [token] = useToken(logingUserEmail)
+
+	if(token){
+		navigate(from, {replace : true})
+	}
+
+
     const handleLogin = (event) => {
 		event.preventDefault();
 
@@ -27,10 +38,11 @@ const Login = () => {
         .then(result =>{
             const user = result.user
             console.log(user);
+            setError('')
             toast.success('login successful')
 			// get token
-			setAuthToken(result.user)
-            navigate(from,{replace:true})
+			setLogingUserEmail(email)
+            // navigate(from,{replace:true})
         })
 		.catch(err => {
 			toast.error(err.message)
@@ -47,7 +59,8 @@ const Login = () => {
         .then(result =>{
             const user = result.user
             console.log(user);
-			setAuthToken(result.user)
+            setLogingUserEmail(user?.email)
+			// setAuthToken(result.user)
 			navigate(from,{replace:true})
         })
     }

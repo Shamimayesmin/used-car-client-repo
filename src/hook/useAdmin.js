@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
 
-const useAdmin = (email) => {
+const useAdmin = email => {
     const [isAdmin, setIsAdmin] = useState(false);
 	const [isAdminLoading, setIsAdminLoading] = useState(true);
 	useEffect(() => {
 		if (email) {
 			fetch(
-				`https://doctors-portal-server-pearl.vercel.app/users/admin/${email}`
+				`http://localhost:5000/users/admin/${email}`
 			)
 				.then((res) => res.json())
 				.then((data) => {

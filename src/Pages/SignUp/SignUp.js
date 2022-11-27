@@ -1,9 +1,10 @@
 import React, { useContext, useState } from "react";
 import toast from "react-hot-toast";
 import { Link, useLoaderData, useLocation, useNavigate } from "react-router-dom";
-import { saveUser, setAuthToken } from "../../api/auth";
+// import { saveUser, setAuthToken } from "../../api/auth";
 import SmallSpinner from "../../components/Spinner/SmallSpinner";
 import { AuthContext } from "../../context/AuthProvider";
+import useToken from "../../hook/useToken";
 // import { AuthContext } from "../../context/AuthProvider";
 
 const SignUp = () => {
@@ -16,9 +17,17 @@ const SignUp = () => {
 	const navigate = useNavigate();
 	const location = useLocation();
 	const from = location.state?.from?.pathname || "/";
+
+	// get jwt token hook :
 	const [createUserEmail, setCreateUserEmail] = useState("");
+	const [token] = useToken(createUserEmail);
+
+	if (token) {
+		navigate(from, { replace: true });
+	}
+
+
 	const handleSignUp = (event) => {
-		console.log(event);
 		event.preventDefault();
 
 		const form = event.target;
@@ -32,7 +41,7 @@ const SignUp = () => {
 		createUser(email, password)
 			.then((result) => {
 				// get token
-				setAuthToken(result.user);
+				// setAuthToken(result.user);
 				const user = result.user;
 				console.log(user);
 				form.reset();
@@ -50,7 +59,7 @@ const SignUp = () => {
 						// console.log(user);
 					})
 					.catch((err) => console.log(err));
-				navigate(from, { replace: true });
+				// navigate(from, { replace: true });
 			})
 			.catch((error) => {
 				console.error(error);
@@ -64,7 +73,7 @@ const SignUp = () => {
 			const user = result.user;
 			console.log(user);
 			// get token
-			setAuthToken(result.user);
+			// setAuthToken(result.user);
 			navigate(from, { replace: true });
 		});
 	};

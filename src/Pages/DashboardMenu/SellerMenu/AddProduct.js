@@ -59,7 +59,7 @@ const AddProduct = () => {
 						method: "POST",
 						headers: {
 							"content-type": "application/json",
-							authorization: `bearer ${localStorage.getItem("usedcar-token")}`,
+							authorization: `bearer ${localStorage.getItem("usedcarToken")}`,
 						},
 						body: JSON.stringify(product),
 					})
@@ -104,6 +104,7 @@ const AddProduct = () => {
 					<input
 						{...register("price", { required: "price is required" })}
 						type="text"
+						
 						placeholder="Type here"
 						className="input input-bordered w-full max-w-xs"
 					/>

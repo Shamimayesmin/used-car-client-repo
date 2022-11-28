@@ -8,7 +8,7 @@ import Seller from './Seller';
 const AllSellers = () => {
 
     const [allSeller, setAllSeller] = useState([])
-
+	
     useEffect(()=>{
 	    fetch('http://localhost:5000/users/seller')
 	    .then(res => res.json())
@@ -31,7 +31,7 @@ const AllSellers = () => {
 			.then((data) => {
 				if (data.deletedCount > 0) {
 					// refetch();
-					toast.success(`Buyer ${id.name} deleted successfully`);
+					toast.success(`Seller deleted successfully`);
                     const reamaining =allSeller.filter((odr) => odr._id !== id);
                     setAllSeller(reamaining);
 				}
@@ -39,6 +39,25 @@ const AllSellers = () => {
 			});
 	};
     
+
+	// upadte checkout page
+	const handleMakeVerify = (id) => {
+		fetch(`http://localhost:5000/users/seller/${id}`, {
+			method: "PUT",
+			headers: {
+				authorization: `bearer ${localStorage.getItem("accessToken")}`,
+			},
+		})
+			.then((res) => res.json())
+			.then((data) => {
+				console.log(data);
+				if (data.modifiedCount > 0) {
+					toast.success("verify successfull");
+					// refetch();
+				}
+			});
+	};
+
     return (
         <div>
 			<h2 className="text-3xl text-center m-7 font-semibold text-red-500">All Sellers</h2>
@@ -51,12 +70,15 @@ const AllSellers = () => {
 							<th>Name</th>
 							<th>Email</th>
 							<th>Role</th>
+							<th>Status</th>
 							<th>Delete</th>
 						</tr>
 					</thead>
 					<tbody>
                         {
-                            allSeller?.map((user,i)=><Seller i={i} key={user._id} user={user} handleDeleteSeller={handleDeleteSeller}></Seller>)
+                            allSeller?.map((sale,i)=><Seller i={i} key={sale._id} sale={sale} handleDeleteSeller={handleDeleteSeller}
+							handleMakeVerify ={handleMakeVerify }
+							></Seller>)
                         }
 						
 					</tbody>

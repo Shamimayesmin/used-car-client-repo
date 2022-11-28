@@ -2,5 +2,5 @@
 
 ## website name : CarSell
 
-### Admin email = teviwa6553@turuma.com
+### Admin email = kacej11214@xegge.com
 - password : 123456

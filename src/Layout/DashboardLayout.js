@@ -11,7 +11,9 @@ import Navbar from "../Pages/Shared/Navbar/Navbar";
 
 const DashboardLayout = () => {
 	const { user } = useContext(AuthContext);
-	const [isBuyer] = useBuyer(user?.email);
+	const [isAdmin] = useBuyer(user?.email);
+
+	// const [isBuyer] = useBuyer(user?.email);
 	const [isSeller] = useSeller(user?.email);
 
 	return (
@@ -30,23 +32,28 @@ const DashboardLayout = () => {
 					<label htmlFor="dashboard-drawer" className="drawer-overlay"></label>
 					<ul className="menu p-4 w-80">
 						
-                        <li className="hover:bg-red-600 hover:text-white rounded-lg">
+                        {/* <li className="hover:bg-red-600 hover:text-white rounded-lg">
 							<Link to="/dashboard/allseller">All Sellers</Link>
 						</li>
 						<li className="hover:bg-red-600 hover:text-white rounded-lg">
 							<Link to="/dashboard/allbuyer">All Buyers</Link>
-						</li>
+						</li> */}
+                        {/* <li className="hover:bg-red-600 hover:text-white rounded-lg">
+							<Link to="/dashboard/my-orders">My orders</Link>
+						</li> */}
 
-						{isBuyer && (
+						 {user?.uid && !isAdmin && !isSeller &&
 							<>
 								<li className="hover:bg-red-600 hover:text-white rounded-lg">
 									<Link to="/dashboard/my-orders">My orders</Link>
 								</li>
+                                
 							</>
-						)}
+						} 
 						
 
-						{/* {isAdmin && (
+						 {
+                        //  isAdmin && 
 							<>
 								<li>
 									<Link to="/dashboard/allseller">All Sellers</Link>
@@ -55,7 +62,7 @@ const DashboardLayout = () => {
 									<Link to="/dashboard/allbuyer">All Buyers</Link>
 								</li>
 							</>
-						)} */}
+						} 
 
 						{isSeller && (
 							<>

@@ -50,6 +50,7 @@ const ProductCard = ({ item, setAddProducts }) => {
 
 					<div>
 						<label
+							disabled={role.length ===0} 
 							onClick={() => setAddProducts(item)}
 							htmlFor="booking-modal"
 							className="btn btn-error bg-gradient-to-r from-error to-secondary text-white"

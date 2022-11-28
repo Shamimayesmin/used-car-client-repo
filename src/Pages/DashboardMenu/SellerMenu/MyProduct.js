@@ -1,5 +1,6 @@
 import { useQuery } from '@tanstack/react-query';
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const MyProduct = () => {
 
@@ -38,6 +39,7 @@ const MyProduct = () => {
 							<th>Date</th>
 							<th>price</th>
 							<th>Status</th>
+							<th>Delete</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -54,16 +56,27 @@ const MyProduct = () => {
 								<td>{product.name}</td>
 								<td>{product.date}</td>
 								<td>{product.price}</td>
-								{/* <td>{product.product}</td> */}
+								<td>
+								{product.name && !product.sold && (
+									<Link to={`/advertise/${product._id}`}>
+										<button className="rounded-lg btn-sm btn-primary">Available</button>
+									</Link>
+											
+										)}
+								{product.name && product.sold && (
+											<button className=" text-green-400 btn-sm">sold</button>
+										)}
+
+								</td>
 								
 								<td>
-									{/* <label
-										onClick={() => setDeleteDoctor(doctor)}
+									<label
+										// onClick={() => setDeleteDoctor(doctor)}
 										htmlFor="confirm-modal"
 										className="btn btn-sm btn-error"
 									>
 										Delete
-									</label> */}
+									</label>
 								</td>
 							</tr>
 						))}

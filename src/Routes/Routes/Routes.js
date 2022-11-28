@@ -6,6 +6,7 @@ import AllBuyers from "../../Pages/DashboardMenu/AdminMenu/AllBuyers";
 import AllSellers from "../../Pages/DashboardMenu/AdminMenu/AllSellers";
 import MyOrder from "../../Pages/DashboardMenu/MyOrder/MyOrder";
 import AddProduct from "../../Pages/DashboardMenu/SellerMenu/AddProduct";
+import Advertise from "../../Pages/DashboardMenu/SellerMenu/Advertise";
 import MyProduct from "../../Pages/DashboardMenu/SellerMenu/MyProduct";
 import Category from "../../Pages/Home/Category/Category";
 import Home from "../../Pages/Home/Home/Home";
@@ -16,6 +17,7 @@ import ErrorPage from "../../Pages/Shared/ErrorPage/ErrorPage";
 import SignUp from "../../Pages/SignUp/SignUp";
 import AdminRoute from "../AdminRoute/AdminRoute";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
+import SellerRoute from "../SellerRoute/SellerRoute";
 
 const router = createBrowserRouter([
     {
@@ -72,27 +74,38 @@ const router = createBrowserRouter([
         children : [
             {
 				path: "/dashboard/my-orders",
-				element: <MyOrder></MyOrder> 
+				element: <MyOrder></MyOrder>
 				
 			},
             {
 				path: "/dashboard/addproduct",
-				element : <AddProduct></AddProduct>
+				element : <SellerRoute><AddProduct></AddProduct></SellerRoute>
 				
 			},
             {
 				path: "/dashboard/myproduct",
-				element : <MyProduct></MyProduct>
+				element : <SellerRoute><MyProduct></MyProduct></SellerRoute>
 				
 			},
             {
 				path: '/dashboard/allseller',
+				// element : <AdminRoute><AllSellers></AllSellers></AdminRoute>
 				element : <AllSellers></AllSellers>
              
 			},
             {
 				path: '/dashboard/allbuyer',
+				// element : <AdminRoute><AllBuyers></AllBuyers></AdminRoute>
 				element : <AllBuyers></AllBuyers>
+             
+			},
+            {
+				path: '/dashboard/advertise/:id',
+				element : <Advertise></Advertise>,
+                loader: ({params}) =>fetch(`http://localhost:5000/brands/${params.id}`)
+					
+						
+					,
              
 			},
             {

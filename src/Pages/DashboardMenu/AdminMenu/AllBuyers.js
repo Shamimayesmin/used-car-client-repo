@@ -27,7 +27,7 @@ const AllBuyers = () => {
 			.then((data) => {
 				if (data.deletedCount > 0) {
 					// refetch();
-					toast.success(`Buyer ${id.name} deleted successfully`);
+					toast.success(`Buyer deleted successfully`);
                     const reamaining =allbuyer.filter((odr) => odr._id !== id);
                     setAllBuyer(reamaining);
 				}

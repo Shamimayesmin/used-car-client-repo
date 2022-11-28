@@ -45,7 +45,7 @@ const router = createBrowserRouter([
 
 			{
 				path: "/category/:id",
-				element: <Products></Products>,
+				element: <PrivateRoute><Products></Products></PrivateRoute>,
 				loader: ({ params }) =>
 					fetch(` https://used-car-server.vercel.app/brands/${params.id}`),
 			},
@@ -59,8 +59,8 @@ const router = createBrowserRouter([
 
 	{
 		path: "/dashboard",
-		// element : <PrivateRoute><DashboardLayout></DashboardLayout></PrivateRoute>,
-		element: <DashboardLayout></DashboardLayout>,
+		element : <PrivateRoute><DashboardLayout></DashboardLayout></PrivateRoute>,
+		// element: <DashboardLayout></DashboardLayout>,
 		children: [
 			{
 				path: "/dashboard/my-orders",

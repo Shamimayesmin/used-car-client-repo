@@ -39,7 +39,7 @@ const AllSellers = () => {
 		fetch(` https://used-car-server.vercel.app/users/seller/${id}`, {
 			method: "PUT",
 			headers: {
-				authorization: `bearer ${localStorage.getItem("accessToken")}`,
+				authorization: `bearer ${localStorage.getItem("usedcarToken")}`,
 			},
 		})
 			.then((res) => res.json())

@@ -6,6 +6,7 @@ import {
 	useLocation,
 	useNavigate,
 } from "react-router-dom";
+import SocialLogin from "../../components/SocialLogin/SocialLogin";
 // import { saveUser, setAuthToken } from "../../api/auth";
 import SmallSpinner from "../../components/Spinner/SmallSpinner";
 import { AuthContext } from "../../context/AuthProvider";
@@ -75,8 +76,12 @@ const SignUp = () => {
 		signInWithGoogle().then((result) => {
 			const user = result.user;
 			console.log(user);
+			const currentUser = {
+				email : user.email
+			}
 			// get token
-			// setAuthToken(result.user);
+			saveUser(currentUser)
+			
 			navigate(from, { replace: true });
 		});
 	};
@@ -184,6 +189,7 @@ const SignUp = () => {
 						<button onClick={handleGoogleSignIn} className="btn btn-secondary">
 							Google sign in
 						</button>
+						{/* <SocialLogin></SocialLogin> */}
 					</div>
 				</div>
 			</div>

@@ -2,10 +2,10 @@ import { useQuery } from "@tanstack/react-query";
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import Loading from "../../../components/Spinner/Loading";
-import DatePicker from "react-datepicker";
+// import DatePicker from "react-datepicker";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
-import { CalendarIcon } from "@heroicons/react/20/solid";
+// import { CalendarIcon } from "@heroicons/react/20/solid";
 
 // import DatePicker from 'react-datepicker'
 
@@ -112,14 +112,7 @@ const AddProduct = () => {
 					/>
 				</div>
 
-				{/* <div className='shadow-md rounded-md my-2 p-3 flex justify-between items-center'>
-                <div>
-                  <p className='block text-sm text-gray-500'>To</p>
-                  <DatePicker selected={startDate} onChange={(date) => setStartDate(date)} />
-                </div>
-
-                <CalendarIcon className='h5 w-5' />
-              </div> */}
+				
 				<div className="form-control w-full max-w-xs">
 					<label className="label">
 						<span className="label-text">location</span>

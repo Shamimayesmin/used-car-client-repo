@@ -29,6 +29,7 @@ const AuthProvider = ({children}) => {
   // 4. Google Signin
   const signInWithGoogle = () => {
     setLoading(true)
+    localStorage.getItem('usedcar-token')
     return signInWithPopup(auth, googleProvider)
   }
 

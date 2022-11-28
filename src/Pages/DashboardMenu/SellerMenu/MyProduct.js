@@ -1,6 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import React from "react";
 import { Link } from "react-router-dom";
+import Loading from "../../../components/Spinner/Loading";
 
 const MyProduct = () => {
 	const {
@@ -25,6 +26,10 @@ const MyProduct = () => {
 			} catch (error) {}
 		},
 	});
+
+	if (isLoading) {
+		return <Loading></Loading>;
+	}
 	return (
 		<div>
 			<h2 className="text-2xl text-center m-3 text-red-600">

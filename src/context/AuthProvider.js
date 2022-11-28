@@ -5,7 +5,7 @@ export const AuthContext = createContext()
 const auth = getAuth(app)
 
 const AuthProvider = ({children}) => {
-    const [user, setUser] = useState()
+    const [user, setUser] = useState(null)
     const [loading, setLoading] = useState(false)
 
     const googleProvider = new GoogleAuthProvider()
@@ -29,7 +29,6 @@ const AuthProvider = ({children}) => {
   // 4. Google Signin
   const signInWithGoogle = () => {
     setLoading(true)
-    localStorage.getItem('usedcar-token')
     return signInWithPopup(auth, googleProvider)
   }
 
@@ -73,6 +72,7 @@ const updateUser = (userInfo) =>{
     signin,
     loading,
     setLoading,
+    setUser
   }
 
     return (

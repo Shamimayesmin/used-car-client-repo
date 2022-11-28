@@ -1,7 +1,8 @@
-import React, { useContext, useState } from "react";
+import React, { cloneElement, useContext, useState } from "react";
 import toast from "react-hot-toast";
 import {
 	Link,
+	Navigate,
 	useLoaderData,
 	useLocation,
 	useNavigate,
@@ -14,11 +15,11 @@ import useToken from "../../hook/useToken";
 // import { AuthContext } from "../../context/AuthProvider";
 
 const SignUp = () => {
-	const { createUser, updateUser, signInWithGoogle, loading, setLoading } =
+	const {user, createUser, updateUser, signInWithGoogle, loading, setLoading,setUser } =
 		useContext(AuthContext);
 
 	const [error, setError] = useState("");
-
+	console.log(user);
 	const navigate = useNavigate();
 	const location = useLocation();
 	const from = location.state?.from?.pathname || "/";
@@ -27,9 +28,9 @@ const SignUp = () => {
 	const [createUserEmail, setCreateUserEmail] = useState("");
 	const [token] = useToken(createUserEmail);
 
-	if (token) {
-		navigate(from, { replace: true });
-	}
+	// if (token) {
+	// 	navigate(from, { replace: true });
+	// }
 
 	const handleSignUp = (event) => {
 		event.preventDefault();
@@ -76,19 +77,18 @@ const SignUp = () => {
 		signInWithGoogle().then((result) => {
 			const user = result.user;
 			console.log(user);
-			const currentUser = {
-				email : user.email
-			}
-			// get token
-			saveUser(currentUser)
 			
-			navigate(from, { replace: true });
+			setUser(user)
+			// get token
+			saveUser(user.displayName, user.email , "user")
+			
+			// navigate(from, { replace: true });
 		});
 	};
 
 	const saveUser = (name, email, role) => {
 		const user = { name, email, role };
-		fetch(" https://used-car-server.vercel.app/users", {
+		fetch(" http://localhost:5000/users", {
 			method: "POST",
 			headers: {
 				"content-type": "application/json",
@@ -102,7 +102,9 @@ const SignUp = () => {
 			});
 	};
 	return (
+
 		<div>
+			{token &&  <Navigate to={from} state={{ from: location }} replace />}
 			<div className="h-[800px] flex justify-center items-center m-40 w-96 mx-auto">
 				<div className="w-96 rounded-lg p-7 shadow-2xl">
 					<h2 className="text-2xl text-center">Sign Up</h2>

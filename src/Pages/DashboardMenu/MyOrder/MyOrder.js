@@ -2,7 +2,6 @@ import { useQuery } from "@tanstack/react-query";
 import React, { useContext, useEffect, useState } from "react";
 import toast from "react-hot-toast";
 import { Link } from "react-router-dom";
-import { getAllBookingsByEmail } from "../../../api/booking";
 import { AuthContext } from "../../../context/AuthProvider";
 
 const MyOrder = () => {
@@ -10,6 +9,7 @@ const MyOrder = () => {
 	const [allBookings, setAllBookings] = useState([]);
 	//   console.log(bookings)
 	const url = ` https://used-car-server.vercel.app/bookings?email=${user?.email}`;
+	console.log(user);
 
 	const { data: bookings = [], refetch } = useQuery({
 		queryKey: ["bookings", user?.email],

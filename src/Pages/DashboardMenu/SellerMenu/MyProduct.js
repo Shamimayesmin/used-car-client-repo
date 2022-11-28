@@ -1,9 +1,11 @@
 import { useQuery } from "@tanstack/react-query";
-import React from "react";
+import React, { useState } from "react";
+import toast from "react-hot-toast";
 import { Link } from "react-router-dom";
 import Loading from "../../../components/Spinner/Loading";
 
 const MyProduct = () => {
+	const [allproduct, setAllProduct] = useState([]);
 	const {
 		data: addproducts,
 		isLoading,
@@ -26,6 +28,25 @@ const MyProduct = () => {
 			} catch (error) {}
 		},
 	});
+
+	const handleDeleteProduct = (id) => {
+		fetch(` https://used-car-server.vercel.app/products/${id}`, {
+			method: "DELETE",
+			headers: {
+				authorization: `bearer ${localStorage.getItem("usedcarToken")}`,
+			},
+		})
+			.then((res) => res.json())
+			.then((data) => {
+				if (data.deletedCount > 0) {
+					refetch();
+					toast.success(`Buyer deleted successfully`);
+					const reamaining = allproduct.filter((odr) => odr._id !== id);
+					setAllProduct(reamaining);
+				}
+				console.log(data);
+			});
+	};
 
 	if (isLoading) {
 		return <Loading></Loading>;
@@ -78,7 +99,7 @@ const MyProduct = () => {
 
 								<td>
 									<label
-										// onClick={() => setDeleteDoctor(doctor)}
+										onClick={() => handleDeleteProduct(product._id)}
 										htmlFor="confirm-modal"
 										className="btn btn-sm btn-error"
 									>

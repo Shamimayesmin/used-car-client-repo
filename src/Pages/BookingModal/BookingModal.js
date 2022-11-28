@@ -1,14 +1,14 @@
-import React, { useContext } from 'react';
-import toast from 'react-hot-toast';
-import { AuthContext } from '../../context/AuthProvider';
+import React, { useContext } from "react";
+import toast from "react-hot-toast";
+import { AuthContext } from "../../context/AuthProvider";
 
-const BookingModal = ({addProducts,setAddProducts}) => {
-    const { title,location,resalePrice} = addProducts
-    // console.log(addProducts);
-    const {user} = useContext(AuthContext)
-    console.log(user);
+const BookingModal = ({ addProducts, setAddProducts }) => {
+	const { title, location, resalePrice } = addProducts;
+	// console.log(addProducts);
+	const { user } = useContext(AuthContext);
+	console.log(user);
 
-    const handleBooking = (event) => {
+	const handleBooking = (event) => {
 		event.preventDefault();
 
 		const form = event.target;
@@ -16,19 +16,17 @@ const BookingModal = ({addProducts,setAddProducts}) => {
 		const email = form.email.value;
 		const phone = form.phone.value;
 
-		console.log( name, email, phone);
+		console.log(name, email, phone);
 		const booking = {
-			
 			productName: title,
 			person: name,
 			email,
 			phone,
-            location,
-			price : resalePrice,
+			location,
+			price: resalePrice,
 		};
 
-
-		fetch("http://localhost:5000/bookings", {
+		fetch(" https://used-car-server.vercel.app/bookings", {
 			method: "POST",
 			headers: {
 				"content-type": "application/json",
@@ -50,8 +48,8 @@ const BookingModal = ({addProducts,setAddProducts}) => {
 		// setTreatment(null)
 	};
 
-    return (
-        <>
+	return (
+		<>
 			<input type="checkbox" id="booking-modal" className="modal-toggle" />
 			<div className="modal">
 				<div className="modal-box relative w-96">
@@ -69,21 +67,21 @@ const BookingModal = ({addProducts,setAddProducts}) => {
 					>
 						<input
 							type="text"
-                            placeholder="location"
-                            // defaultValue={location}
+							placeholder="location"
+							// defaultValue={location}
 							value={location}
 							className="input input-bordered w-full"
 							disabled
 						/>
 						<input
 							type="text"
-                            placeholder="price"
-                            // defaultValue={resalePrice}
+							placeholder="price"
+							// defaultValue={resalePrice}
 							value={resalePrice}
 							className="input input-bordered w-full"
 							disabled
 						/>
-						
+
 						<input
 							name="name"
 							type="text"
@@ -116,7 +114,7 @@ const BookingModal = ({addProducts,setAddProducts}) => {
 				</div>
 			</div>
 		</>
-    );
+	);
 };
 
 export default BookingModal;

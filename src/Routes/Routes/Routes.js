@@ -20,104 +20,92 @@ import PrivateRoute from "../PrivateRoute/PrivateRoute";
 import SellerRoute from "../SellerRoute/SellerRoute";
 
 const router = createBrowserRouter([
-    {
-        path : '/',
-        element : <Main></Main>,
-        errorElement : <ErrorPage></ErrorPage>,
-        children : [
-            {
-                path : '/',
-                element : <Home></Home>
-            },
-            {
-                path : '/login',
-                element : <Login></Login>
-            },
-            {
-                path : '/signup',
-                element : <SignUp></SignUp>,
-                loader: () =>
-					fetch(
-						'http://localhost:5000/brands'
-					)
+	{
+		path: "/",
+		element: <Main></Main>,
+		errorElement: <ErrorPage></ErrorPage>,
+		children: [
+			{
+				path: "/",
+				element: <Home></Home>,
+			},
+			{
+				path: "/login",
+				element: <Login></Login>,
+			},
+			{
+				path: "/signup",
+				element: <SignUp></SignUp>,
+				loader: () => fetch(" https://used-car-server.vercel.app/brands"),
+			},
+			{
+				path: "/blog",
+				element: <Blog></Blog>,
+			},
 
-            },
-            {
-                path : '/blog',
-                element : <Blog></Blog>
-            },
-            
-            {
-                path : '/category/:id',
-                element : <Products></Products> ,
-                loader: ({ params }) =>
-					fetch(
-						`http://localhost:5000/brands/${params.id}`
-					),
-            },
-            {
-                path : '/brands',
-                element : <Products></Products>,
-                loader: () =>
-					fetch(
-						'http://localhost:5000/brands'
-					),
-            },
-            
-        ]
-    },
+			{
+				path: "/category/:id",
+				element: <Products></Products>,
+				loader: ({ params }) =>
+					fetch(` https://used-car-server.vercel.app/brands/${params.id}`),
+			},
+			{
+				path: "/brands",
+				element: <Products></Products>,
+				loader: () => fetch(" https://used-car-server.vercel.app/brands"),
+			},
+		],
+	},
 
-    {
-        path: "/dashboard",
-        // element : <PrivateRoute><DashboardLayout></DashboardLayout></PrivateRoute>,
-        element : <DashboardLayout></DashboardLayout>,
-        children : [
-            {
+	{
+		path: "/dashboard",
+		// element : <PrivateRoute><DashboardLayout></DashboardLayout></PrivateRoute>,
+		element: <DashboardLayout></DashboardLayout>,
+		children: [
+			{
 				path: "/dashboard/my-orders",
-				element: <MyOrder></MyOrder>
-				
+				element: <MyOrder></MyOrder>,
 			},
-            {
+			{
 				path: "/dashboard/addproduct",
-				element : <SellerRoute><AddProduct></AddProduct></SellerRoute>
-				
+				element: (
+					<SellerRoute>
+						<AddProduct></AddProduct>
+					</SellerRoute>
+				),
 			},
-            {
+			{
 				path: "/dashboard/myproduct",
-				element : <SellerRoute><MyProduct></MyProduct></SellerRoute>
-				
+				element: (
+					<SellerRoute>
+						<MyProduct></MyProduct>
+					</SellerRoute>
+				),
 			},
-            {
-				path: '/dashboard/allseller',
+			{
+				path: "/dashboard/allseller",
 				// element : <AdminRoute><AllSellers></AllSellers></AdminRoute>
-				element : <AllSellers></AllSellers>
-             
+				element: <AllSellers></AllSellers>,
 			},
-            {
-				path: '/dashboard/allbuyer',
+			{
+				path: "/dashboard/allbuyer",
 				// element : <AdminRoute><AllBuyers></AllBuyers></AdminRoute>
-				element : <AllBuyers></AllBuyers>
-             
+				element: <AllBuyers></AllBuyers>,
 			},
-            {
-				path: '/dashboard/advertise/:id',
-				element : <Advertise></Advertise>,
-                loader: ({params}) =>fetch(`http://localhost:5000/brands/${params.id}`)
-					
-						
-					,
-             
+			{
+				path: "/dashboard/advertise/:id",
+				element: <Advertise></Advertise>,
+				loader: ({ params }) =>
+					fetch(` https://used-car-server.vercel.app/brands/${params.id}`),
 			},
-            {
+			{
 				path: "/dashboard/payment/:id",
 				element: <Payment></Payment>,
 				loader: ({ params }) =>
-					fetch(
-						`http://localhost:5000/bookings/${params.id}`
-					),
+					fetch(` https://used-car-server.vercel.app/bookings/${params.id}`),
 			},
-        ]
-    }
-])
+		],
+	},
+]);
 
-export default router ;
+export default router;

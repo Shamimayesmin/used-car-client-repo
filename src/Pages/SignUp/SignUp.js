@@ -1,6 +1,11 @@
 import React, { useContext, useState } from "react";
 import toast from "react-hot-toast";
-import { Link, useLoaderData, useLocation, useNavigate } from "react-router-dom";
+import {
+	Link,
+	useLoaderData,
+	useLocation,
+	useNavigate,
+} from "react-router-dom";
 // import { saveUser, setAuthToken } from "../../api/auth";
 import SmallSpinner from "../../components/Spinner/SmallSpinner";
 import { AuthContext } from "../../context/AuthProvider";
@@ -11,7 +16,6 @@ const SignUp = () => {
 	const { createUser, updateUser, signInWithGoogle, loading, setLoading } =
 		useContext(AuthContext);
 
-		
 	const [error, setError] = useState("");
 
 	const navigate = useNavigate();
@@ -26,7 +30,6 @@ const SignUp = () => {
 		navigate(from, { replace: true });
 	}
 
-
 	const handleSignUp = (event) => {
 		event.preventDefault();
 
@@ -37,7 +40,7 @@ const SignUp = () => {
 		const password = form.password.value;
 		const role = form.role.value;
 		console.log(name, password, email, role);
-		
+
 		createUser(email, password)
 			.then((result) => {
 				// get token
@@ -55,7 +58,7 @@ const SignUp = () => {
 
 				updateUser(userInfo)
 					.then(() => {
-						saveUser(name, email,role);
+						saveUser(name, email, role);
 						// console.log(user);
 					})
 					.catch((err) => console.log(err));
@@ -80,7 +83,7 @@ const SignUp = () => {
 
 	const saveUser = (name, email, role) => {
 		const user = { name, email, role };
-		fetch("http://localhost:5000/users", {
+		fetch(" https://used-car-server.vercel.app/users", {
 			method: "POST",
 			headers: {
 				"content-type": "application/json",
@@ -119,10 +122,8 @@ const SignUp = () => {
 								type="text"
 								name="role"
 								id="role"
-								
 								className="select select-bordered w-full max-w-xs"
 							>
-								
 								<option selected>seller</option>
 								<option>buyer</option>
 							</select>
@@ -143,7 +144,7 @@ const SignUp = () => {
 								className="input input-bordered"
 							/>
 						</div>
-						
+
 						<div className="form-control">
 							<label className="label">
 								<span className="label-text">Password</span>
@@ -163,7 +164,7 @@ const SignUp = () => {
 							</label>
 							<p className="text-red-500">{error}</p>
 						</div>
-						
+
 						<div className="form-control mt-6">
 							<button className="btn btn-primary">
 								{loading ? <SmallSpinner></SmallSpinner> : "Sign Up"}

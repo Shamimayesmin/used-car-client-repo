@@ -1,16 +1,16 @@
-import { useQuery } from '@tanstack/react-query';
-import React, { useState } from 'react';
-import { useForm } from 'react-hook-form';
-import Loading from '../../../components/Spinner/Loading';
-import DatePicker from 'react-datepicker'
-import toast from 'react-hot-toast';
-import { useNavigate } from 'react-router-dom';
-import { CalendarIcon } from '@heroicons/react/20/solid'
+import { useQuery } from "@tanstack/react-query";
+import React, { useState } from "react";
+import { useForm } from "react-hook-form";
+import Loading from "../../../components/Spinner/Loading";
+import DatePicker from "react-datepicker";
+import toast from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
+import { CalendarIcon } from "@heroicons/react/20/solid";
 
 // import DatePicker from 'react-datepicker'
 
 const AddProduct = () => {
-    const {
+	const {
 		register,
 		formState: { errors },
 		handleSubmit,
@@ -18,24 +18,23 @@ const AddProduct = () => {
 
 	// const [startDate,setStartDate] = useState(new Date())
 
-    const navigate = useNavigate();
-    const { data: addproducts, isLoading } = useQuery({
+	const navigate = useNavigate();
+	const { data: addproducts, isLoading } = useQuery({
 		queryKey: ["addprocuct"],
 		queryFn: async () => {
 			const res = await fetch(
-				"http://localhost:5000/productName"
+				" https://used-car-server.vercel.app/productName"
 			);
 			const data = await res.json();
 			return data;
 		},
 	});
 
-    const imagehostkey = process.env.REACT_APP_IMGBB_KEY;
-    const handleAddProduct = (data) =>{
-        console.log(data);
+	const imagehostkey = process.env.REACT_APP_IMGBB_KEY;
+	const handleAddProduct = (data) => {
+		console.log(data);
 
-
-        const image = data.image[0];
+		const image = data.image[0];
 		const formData = new FormData();
 		formData.append("image", image);
 		const url = `https://api.imgbb.com/1/upload?key=${imagehostkey}`;
@@ -44,23 +43,23 @@ const AddProduct = () => {
 			method: "POST",
 			body: formData,
 		})
-        .then((res) => res.json())
+			.then((res) => res.json())
 			.then((imgData) => {
 				if (imgData.success) {
 					console.log(imgData.data.url);
 					const product = {
 						name: data.name,
 						email: data.email,
-                        location : data.location,
-                        date : data.date,
-                        price : data.price,
+						location: data.location,
+						date: data.date,
+						price: data.price,
 						product: data.addproduct,
 						image: imgData.data.url,
 					};
 
-                    console.log(product);
+					console.log(product);
 					// save doctor information to the database
-					fetch("http://localhost:5000/products", {
+					fetch(" https://used-car-server.vercel.app/products", {
 						method: "POST",
 						headers: {
 							"content-type": "application/json",
@@ -76,14 +75,13 @@ const AddProduct = () => {
 						});
 				}
 			});
-		
-    }
+	};
 
-    if (isLoading) {
+	if (isLoading) {
 		return <Loading></Loading>;
 	}
-    return (
-        <div className="w-96 mx-auto rounded-lg p-7 shadow-2xl m-20">
+	return (
+		<div className="w-96 mx-auto rounded-lg p-7 shadow-2xl m-20">
 			<h2 className="text-3xl">Add A Doctor</h2>
 			<form onSubmit={handleSubmit(handleAddProduct)}>
 				<div className="form-control w-full max-w-xs">
@@ -109,11 +107,9 @@ const AddProduct = () => {
 					<input
 						{...register("price", { required: "price is required" })}
 						type="text"
-						
 						placeholder="Type here"
 						className="input input-bordered w-full max-w-xs"
 					/>
-					
 				</div>
 
 				{/* <div className='shadow-md rounded-md my-2 p-3 flex justify-between items-center'>
@@ -135,7 +131,6 @@ const AddProduct = () => {
 						placeholder="Type here"
 						className="input input-bordered w-full max-w-xs"
 					/>
-					
 				</div>
 				<div className="form-control w-full max-w-xs">
 					<label className="label">
@@ -148,7 +143,6 @@ const AddProduct = () => {
 						placeholder="Type here"
 						className="input input-bordered w-full max-w-xs"
 					/>
-					
 				</div>
 				<div className="form-control w-full max-w-xs">
 					<label className="label">
@@ -189,7 +183,7 @@ const AddProduct = () => {
 				/>
 			</form>
 		</div>
-    );
+	);
 };
 
 export default AddProduct;

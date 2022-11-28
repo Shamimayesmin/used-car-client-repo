@@ -1,8 +1,8 @@
-import { CardElement, useElements, useStripe } from '@stripe/react-stripe-js';
-import React, { useEffect, useState } from 'react';
+import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
+import React, { useEffect, useState } from "react";
 
 const PaymentCheckForm = ({ booking }) => {
-    const [cardError, setCardError] = useState();
+	const [cardError, setCardError] = useState();
 	const [success, setSuccess] = useState();
 	const [processing, setProcessing] = useState(false);
 	const [transactionId, setTransactionId] = useState();
@@ -15,22 +15,19 @@ const PaymentCheckForm = ({ booking }) => {
 
 	useEffect(() => {
 		// Create PaymentIntent as soon as the page loads
-		fetch(
-			"http://localhost:5000/create-payment-intent",
-			{
-				method: "POST",
-				headers: {
-					"Content-Type": "application/json",
-					authorization: `bearer ${localStorage.getItem("usedcarToken")}`,
-				},
-				body: JSON.stringify({ price }),
-			}
-		)
+		fetch(" https://used-car-server.vercel.app/create-payment-intent", {
+			method: "POST",
+			headers: {
+				"Content-Type": "application/json",
+				authorization: `bearer ${localStorage.getItem("usedcarToken")}`,
+			},
+			body: JSON.stringify({ price }),
+		})
 			.then((res) => res.json())
 			.then((data) => setClientSecret(data.clientSecret));
 	}, [price]);
 
-    const handleSubmit = async (event) => {
+	const handleSubmit = async (event) => {
 		event.preventDefault();
 
 		if (!stripe || !elements) {
@@ -75,7 +72,7 @@ const PaymentCheckForm = ({ booking }) => {
 		}
 		if (paymentIntent.status === "succeeded") {
 			console.log("card info", card);
-            setSuccess("Congrats ! your payment complete");
+			setSuccess("Congrats ! your payment complete");
 			setTransactionId(paymentIntent.id);
 
 			// store payment info in the database
@@ -85,8 +82,8 @@ const PaymentCheckForm = ({ booking }) => {
 				email,
 				bookingId: _id,
 			};
-            
-			fetch("http://localhost:5000/payments", {
+
+			fetch(" https://used-car-server.vercel.app/payments", {
 				method: "POST",
 				headers: {
 					"content-type": "application/json",
@@ -103,50 +100,50 @@ const PaymentCheckForm = ({ booking }) => {
 					}
 				});
 		}
-        console.log('payment intern',paymentIntent );
+		console.log("payment intern", paymentIntent);
 
 		setProcessing(false);
 	};
-    return (
-        <>
-        <form onSubmit={handleSubmit}>
-            <CardElement
-                options={{
-                    style: {
-                        base: {
-                            fontSize: "16px",
-                            color: "#424770",
-                            "::placeholder": {
-                                color: "#aab7c4",
-                            },
-                        },
-                        invalid: {
-                            color: "#9e2146",
-                        },
-                    },
-                }}
-            />
-            <button
-                className="btn btn-sm btn-primary mt-4"
-                type="submit"
-                disabled={!stripe || !clientSecret || processing}
-            >
-                Pay
-            </button>
-        </form>
-        <p className="text-red-500">{cardError}</p>
+	return (
+		<>
+			<form onSubmit={handleSubmit}>
+				<CardElement
+					options={{
+						style: {
+							base: {
+								fontSize: "16px",
+								color: "#424770",
+								"::placeholder": {
+									color: "#aab7c4",
+								},
+							},
+							invalid: {
+								color: "#9e2146",
+							},
+						},
+					}}
+				/>
+				<button
+					className="btn btn-sm btn-primary mt-4"
+					type="submit"
+					disabled={!stripe || !clientSecret || processing}
+				>
+					Pay
+				</button>
+			</form>
+			<p className="text-red-500">{cardError}</p>
 
-        {success && (
-            <div>
-                <p className="text-lime-600">{success}</p>
-                <p>
-                    Your transactionId :{" "}
-                    <span className="font-bold">{transactionId}</span>
-                </p>
-            </div>
-        )}
-    </>
-    );
+			{success && (
+				<div>
+					<p className="text-lime-600">{success}</p>
+					<p>
+						Your transactionId :{" "}
+						<span className="font-bold">{transactionId}</span>
+					</p>
+				</div>
+			)}
+		</>
+	);
 };
 
 export default PaymentCheckForm;

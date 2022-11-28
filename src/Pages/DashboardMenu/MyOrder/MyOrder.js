@@ -7,9 +7,9 @@ import { AuthContext } from "../../../context/AuthProvider";
 
 const MyOrder = () => {
 	const { user } = useContext(AuthContext);
-	const [allBookings, setAllBookings] = useState([])
+	const [allBookings, setAllBookings] = useState([]);
 	//   console.log(bookings)
-	const url = `http://localhost:5000/bookings?email=${user?.email}`;
+	const url = ` https://used-car-server.vercel.app/bookings?email=${user?.email}`;
 
 	const { data: bookings = [], refetch } = useQuery({
 		queryKey: ["bookings", user?.email],
@@ -24,31 +24,24 @@ const MyOrder = () => {
 		},
 	});
 
-
 	const handleDeleteOrder = (id) => {
-		fetch(
-			`http://localhost:5000/bookings/${id}`,
-			{
-				method: "DELETE",
-				headers: {
-					authorization: `bearer ${localStorage.getItem("usedcarToken")}`,
-				},
-			}
-		)
+		fetch(` https://used-car-server.vercel.app/bookings/${id}`, {
+			method: "DELETE",
+			headers: {
+				authorization: `bearer ${localStorage.getItem("usedcarToken")}`,
+			},
+		})
 			.then((res) => res.json())
 			.then((data) => {
 				if (data.deletedCount > 0) {
 					refetch();
 					toast.success(`Buyer deleted successfully`);
-                    const reamaining =allBookings.filter((odr) => odr._id !== id);
-                    setAllBookings(reamaining);
+					const reamaining = allBookings.filter((odr) => odr._id !== id);
+					setAllBookings(reamaining);
 				}
 				console.log(data);
 			});
 	};
-
-
-
 
 	return (
 		<div>
@@ -74,10 +67,9 @@ const MyOrder = () => {
 									<td>{booking.person}</td>
 									<td>{booking.productName}</td>
 									<td>{booking.location}</td>
-									
+
 									<td>{booking.price}</td>
-									
-									
+
 									<td>
 										{booking.price && !booking.paid && (
 											<Link to={`/dashboard/payment/${booking._id}`}>
@@ -87,19 +79,17 @@ const MyOrder = () => {
 										{booking.price && booking.paid && (
 											<button className=" text-green-400 btn-sm">paid</button>
 										)}
-
-										
 									</td>
 
 									<td>
 										<label
-										onClick={()=>handleDeleteOrder(booking._id)}
-										htmlFor="confirm-modal"
-										className="btn btn-sm btn-error"
-									>
-										Delete
+											onClick={() => handleDeleteOrder(booking._id)}
+											htmlFor="confirm-modal"
+											className="btn btn-sm btn-error"
+										>
+											Delete
 										</label>
-										</td>
+									</td>
 								</tr>
 							))}
 					</tbody>

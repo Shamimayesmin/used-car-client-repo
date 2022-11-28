@@ -52,17 +52,17 @@ const DashboardLayout = () => {
 						} 
 						
 
-						 {
+						 {/* {
                         //  isAdmin && 
 							<>
-								<li>
+								<li className="hover:bg-red-600 hover:text-white rounded-lg">
 									<Link to="/dashboard/allseller">All Sellers</Link>
 								</li>
-								<li>
+								<li className="hover:bg-red-600 hover:text-white rounded-lg">
 									<Link to="/dashboard/allbuyer">All Buyers</Link>
 								</li>
 							</>
-						} 
+						}  */}
 
 						{isSeller && (
 							<>

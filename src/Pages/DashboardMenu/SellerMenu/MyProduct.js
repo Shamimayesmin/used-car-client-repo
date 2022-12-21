@@ -48,6 +48,33 @@ const MyProduct = () => {
 			});
 	};
 
+
+	//advertise the product of the seller
+    const handleAdvertise = (id) => {
+        fetch(`http://localhost:5000/products/${id}`, {
+            method: 'PUT',
+            headers: {
+                authorization: `bearer ${localStorage.getItem("usedcarToken")}`,
+            }
+        })
+		.then((res) => res.json())
+            // .then(res => {
+            //     if (res.status === 401 || res.status === 403) {
+            //         return logOut();
+            //     }
+            //     return res.json()
+            // })
+            .then(data => {
+                console.log(data);
+                if (data.modifiedCount > 0) {
+
+                    refetch();
+					toast.success(`Addvertise deleted successfully`);
+                    
+                }
+            })
+    }
+
 	if (isLoading) {
 		return <Loading></Loading>;
 	}
@@ -64,9 +91,10 @@ const MyProduct = () => {
 							<th></th>
 							<th>Avatar</th>
 							<th>Name</th>
-							<th>Date</th>
-							<th>price</th>
+							<th>Price</th>
 							<th>Status</th>
+							<th>Add</th>
+							
 							<th>Delete</th>
 						</tr>
 					</thead>
@@ -82,21 +110,32 @@ const MyProduct = () => {
 									</div>
 								</td>
 								<td>{product.name}</td>
-								<td>{product.date}</td>
+								
 								<td>{product.price}</td>
+
 								<td>
-									{product.name && !product.sold && (
+									{product.name && !product.advertise && (
 										<Link to={`/advertise/${product._id}`}>
-											<button className="rounded-lg btn-sm btn-primary">
+											<button className="rounded-lg btn-sm bg-orange-100">
 												Available
 											</button>
 										</Link>
 									)}
-									{product.name && product.sold && (
-										<button className=" text-green-400 btn-sm">sold</button>
+									{product.name && product.advertise && (
+										<button className=" text-green-400 btn-sm">Sold</button>
 									)}
 								</td>
 
+								<td>
+									<label
+										onClick={() => handleAdvertise(product._id)}
+										disabled={product.advertise === "true"}
+										htmlFor="confirm-modal"
+										className="btn btn-sm btn-accent"
+									>
+										Advertise
+									</label>
+								</td>
 								<td>
 									<label
 										onClick={() => handleDeleteProduct(product._id)}
@@ -111,16 +150,7 @@ const MyProduct = () => {
 					</tbody>
 				</table>
 			</div>
-			{/* {deleteDoctor && (
-				<ConfirmationModal
-					title={`Are you sure you want to delete?`}
-					message={`If you delete ${deleteDoctor.name}. You wont get treatment`}
-					closeModal={closeModal}
-					handleDeleteDoctor={handleDeleteDoctor}
-					modalData={deleteDoctor}
-					deleteBtnName="Delete"
-				></ConfirmationModal>
-			)} */}
+			
 		</div>
 	);
 };

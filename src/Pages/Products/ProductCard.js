@@ -1,9 +1,16 @@
 import { getRoles } from "@testing-library/react";
-import React from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { FaCheckCircle } from "react-icons/fa";
 import img from '../../assets/images/people1.png'
+import { AuthContext } from "../../context/AuthProvider";
+import useBuyer from "../../hook/useBuyer";
 
 const ProductCard = ({ item, setAddProducts }) => {
+	const {user} = useContext(AuthContext)
+	const [isBuyer] = useBuyer(user?.email)
+	// const [isSeller] = useBuyer(user?.email)
+	// const [verified, setVerified] = useState(false);
+
 	const {
 		image,
 		location,
@@ -15,8 +22,16 @@ const ProductCard = ({ item, setAddProducts }) => {
 		used,
 	} = item;
 
-	// console.log(item);
-	// const {} = item
+	console.log(item);
+	
+
+	// useEffect((email) => {
+    //     fetch(`http://localhost:5000/verifiedSeller?email=${email}`)
+    //         .then(res => {
+    //             setVerified(res.data);
+    //         })
+    // }, [])
+
 	return (
 		<div className="card w-96 bg-base-100 shadow-xl">
 			<figure>
@@ -45,11 +60,16 @@ const ProductCard = ({ item, setAddProducts }) => {
 						<div>
 							<h2>{role[1]}</h2>
 							<h2><FaCheckCircle className="text-blue-500"></FaCheckCircle></h2>
+							{/* {
+                                isSeller && verified && <h2><FaCheckCircle className="text-blue-500"></FaCheckCircle></h2>
+                            } */}
 						</div>
 					</div>
 
 					<div>
-						<label
+						{
+							isBuyer && 
+							<label
 							disabled={role.length ===0} 
 							onClick={() => setAddProducts(item)}
 							htmlFor="booking-modal"
@@ -57,6 +77,7 @@ const ProductCard = ({ item, setAddProducts }) => {
 						>
 							Book Now
 						</label>
+						}
 					</div>
 				</div>
 			</div>

@@ -1,20 +1,22 @@
-import { useQuery } from "@tanstack/react-query";
+
 import React, { useEffect, useState } from "react";
-import { useFormContext } from "react-hook-form";
+
 import toast from "react-hot-toast";
-import { AuthContext } from "../../../context/AuthProvider";
 import Seller from "./Seller";
 
 const AllSellers = () => {
 	const [allSeller, setAllSeller] = useState([]);
-
+//  get all sellers
 	useEffect(() => {
-		fetch(" https://used-car-server.vercel.app/users/seller")
+		fetch("http://localhost:5000/users/seller")
 			.then((res) => res.json())
 			// .then(data => console.log(data))
 			.then((data) => setAllSeller(data));
 	}, []);
 
+
+	// console.log(allSeller);
+	// delete specific seller
 	const handleDeleteSeller = (id) => {
 		fetch(` https://used-car-server.vercel.app/users/${id}`, {
 			method: "DELETE",
@@ -28,15 +30,19 @@ const AllSellers = () => {
 					// refetch();
 					toast.success(`Seller deleted successfully`);
 					const reamaining = allSeller.filter((odr) => odr._id !== id);
+					
 					setAllSeller(reamaining);
 				}
+				
 				console.log(data);
 			});
+			
 	};
 
-	// upadte checkout page
+
+	//  verify seller
 	const handleMakeVerify = (id) => {
-		fetch(` https://used-car-server.vercel.app/users/seller/${id}`, {
+		fetch(` http://localhost:5000/users/seller/${id}`, {
 			method: "PUT",
 			headers: {
 				authorization: `bearer ${localStorage.getItem("usedcarToken")}`,
@@ -47,7 +53,10 @@ const AllSellers = () => {
 				console.log(data);
 				if (data.modifiedCount > 0) {
 					toast.success("verify successfull");
-					// refetch();
+					// const reamaining = allSeller.filter((veri) => veri._id !== id);
+					// setAllSeller();
+					
+
 				}
 			});
 	};
@@ -71,15 +80,21 @@ const AllSellers = () => {
 						</tr>
 					</thead>
 					<tbody>
+						
 						{allSeller?.map((sale, i) => (
 							<Seller
+							
 								i={i}
 								key={sale._id}
 								sale={sale}
+								
 								handleDeleteSeller={handleDeleteSeller}
 								handleMakeVerify={handleMakeVerify}
 							></Seller>
+							
 						))}
+					
+						
 					</tbody>
 				</table>
 			</div>

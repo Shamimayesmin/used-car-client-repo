@@ -33,7 +33,7 @@ const Navbar = () => {
 						<button className="hover:bg-red-500 rounded-3xl" onClick={handleLogOut}>Sign Out</button>
 					</li>
 					:
-					<li>
+					<li className="hover:bg-red-500 rounded-3xl" >
 						<Link to="/login">Login</Link>
 					</li>
 					}
@@ -61,7 +61,7 @@ const Navbar = () => {
 					</label>
 					<ul
 						tabIndex={1}
-						className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
+						className="menu menu-compact dropdown-content mt-3 p-2 shadow rounded-box w-52 bg-black text-white"
 					>
 
 						{menuItems}
@@ -73,7 +73,7 @@ const Navbar = () => {
 				</Link>
 			</div>
 			<div className="navbar-center hidden lg:flex">
-				<ul className="menu menu-horizontal p-0">
+				<ul className="menu menu-horizontal p-0 bg-black text-white">
 
 					{menuItems}
 					

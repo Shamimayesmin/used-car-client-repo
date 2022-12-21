@@ -2,12 +2,10 @@ import { useQuery } from "@tanstack/react-query";
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import Loading from "../../../components/Spinner/Loading";
-// import DatePicker from "react-datepicker";
+
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
-// import { CalendarIcon } from "@heroicons/react/20/solid";
 
-// import DatePicker from 'react-datepicker'
 
 const AddProduct = () => {
 	const {

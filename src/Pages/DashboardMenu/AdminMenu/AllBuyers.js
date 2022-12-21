@@ -12,6 +12,7 @@ const AllBuyers = () => {
 			.then((data) => setAllBuyer(data));
 	}, []);
 
+	console.log(allbuyer);
 	const handleDeleteBuyer = (id) => {
 		fetch(` https://used-car-server.vercel.app/users/${id}`, {
 			method: "DELETE",

@@ -1,29 +1,38 @@
 import React, { useContext } from "react";
-import { Link } from "react-router-dom";
-import { AuthContext } from "../../../context/AuthProvider";
-import useSeller from "../../../hook/useSeller";
+import { FaCheckCircle, } from "react-icons/fa";
+// import { Link } from "react-router-dom";
+// import { AuthContext } from "../../../context/AuthProvider";
+// import useSeller from "../../../hook/useSeller";
 
 const Seller = ({ sale, i, handleDeleteSeller, handleMakeVerify}) => {
-	// console.log(user);
-	const { email, name, role, _id } = sale;
-	// const { user } = useContext(AuthContext);
-	// const [isSeller] = useSeller(user?.email)
+	// console.log(sale);
+	const { email, name, role, _id ,verifyStatus} = sale;
+	
 	return (
 		<>
 			<tr>
 				<th>{i + 1}</th>
-				<td>{name}</td>
-				<td>{email}</td>
+				<td>
+					<div className="flex justify-around items-center">
+					<h2>{name}</h2>
+					<h2>{verifyStatus && <FaCheckCircle className="text-blue-500"></FaCheckCircle>}</h2>
+					
+					
+					</div>
+				</td>
+				<td>{email}
+				</td>
 				<td>{role}</td>
 				<td>
-					{role === "seller" && (
+					
 						<button
 							onClick={() => handleMakeVerify(_id)}
+							disabled={verifyStatus}
 							className="btn btn-xs btn-primary"
 						>
-							Verify
+							{verifyStatus ? 'verified' : 'verify'}
 						</button>
-					)}
+					
 				</td>
 				<td>
 					<button

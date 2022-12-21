@@ -17,18 +17,9 @@ const Other = () => {
 							href="/"
 							className="inline-block text-2xl font-semibold sm:text-3xl"
 						>
-							The Best Activewear from the Nordstrom Anniversary Sale
+							The Best quality car from the popular brands
 						</a>
-						<p className="text-xs dark:text-gray-400">
-							By
-							<a
-								rel="noopener noreferrer"
-								href="/"
-								className="text-xs hover:underline"
-							>
-								Leroy Jenkins
-							</a>
-						</p>
+						
 					</div>
 					<div className="dark:text-gray-100">
 						<p>Insert the actual text content here...</p>

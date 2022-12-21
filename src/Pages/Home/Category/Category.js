@@ -14,16 +14,16 @@ const Category = () => {
 			.then((data) => setCategory(data));
 	}, []);
 	return (
-		<div>
+		<section className="container mx-auto">
 			<h2 className="text-center text-2xl text-red-600 font-bold">
-				All Categories
-			</h2>
-			<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mt-10 mb-20">
-				{categories?.map((category) => (
-					<CategoryCard key={category._id} category={category}></CategoryCard>
-				))}
-			</div>
-		</div>
+					All Categories
+				</h2>
+				<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 p-3 mt-10 mb-20">
+					{categories?.map((category) => (
+						<CategoryCard key={category._id} category={category}></CategoryCard>
+					))}
+				</div>
+		</section>
 	);
 };
 

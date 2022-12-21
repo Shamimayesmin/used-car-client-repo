@@ -7,9 +7,7 @@ import { format } from "date-fns";
 
 const Products = () => {
 	const allCategory = useLoaderData();
-	// const all = data.products
-	// const date = format(selectedDate, "PP");
-	// console.Flog(allCategory);
+	
 	const [addProducts, setAddProducts] = useState(null);
 
 

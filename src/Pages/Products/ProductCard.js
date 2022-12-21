@@ -1,5 +1,5 @@
 import { getRoles } from "@testing-library/react";
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext,} from "react";
 import { FaCheckCircle } from "react-icons/fa";
 import img from '../../assets/images/people1.png'
 import { AuthContext } from "../../context/AuthProvider";

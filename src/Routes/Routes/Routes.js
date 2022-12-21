@@ -43,6 +43,7 @@ const router = createBrowserRouter([
 				element: <Blog></Blog>,
 			},
 
+			
 			{
 				path: "/category/:id",
 				element: <PrivateRoute><Products></Products></PrivateRoute>,
@@ -92,12 +93,12 @@ const router = createBrowserRouter([
 				element : <AdminRoute><AllBuyers></AllBuyers></AdminRoute>
 				// element: <AllBuyers></AllBuyers>,
 			},
-			{
-				path: "/dashboard/advertise/:id",
-				element: <Advertise></Advertise>,
-				loader: ({ params }) =>
-					fetch(` https://used-car-server.vercel.app/brands/${params.id}`),
-			},
+			// {
+			// 	path: "/dashboard/advertise/:id",
+			// 	element: <Advertise></Advertise>,
+			// 	loader: ({ params }) =>
+			// 		fetch(` https://used-car-server.vercel.app/brands/${params.id}`),
+			// },
 			{
 				path: "/dashboard/payment/:id",
 				element: <Payment></Payment>,

@@ -15,7 +15,7 @@ const MyProduct = () => {
 		queryFn: async () => {
 			try {
 				const res = await fetch(
-					" https://used-car-server.vercel.app/products",
+					"https://used-car-server.vercel.app/products",
 					{
 						headers: {
 							authorization: `bearer ${localStorage.getItem("usedcarToken")}`,
@@ -30,7 +30,7 @@ const MyProduct = () => {
 	});
 
 	const handleDeleteProduct = (id) => {
-		fetch(` https://used-car-server.vercel.app/products/${id}`, {
+		fetch(`https://used-car-server.vercel.app/products/${id}`, {
 			method: "DELETE",
 			headers: {
 				authorization: `bearer ${localStorage.getItem("usedcarToken")}`,
@@ -48,32 +48,29 @@ const MyProduct = () => {
 			});
 	};
 
-
 	//advertise the product of the seller
-    const handleAdvertise = (id) => {
-        fetch(`http://localhost:5000/products/${id}`, {
-            method: 'PUT',
-            headers: {
-                authorization: `bearer ${localStorage.getItem("usedcarToken")}`,
-            }
-        })
-		.then((res) => res.json())
-            // .then(res => {
-            //     if (res.status === 401 || res.status === 403) {
-            //         return logOut();
-            //     }
-            //     return res.json()
-            // })
-            .then(data => {
-                console.log(data);
-                if (data.modifiedCount > 0) {
-
-                    refetch();
+	const handleAdvertise = (id) => {
+		fetch(`https://used-car-server.vercel.app/products/${id}`, {
+			method: "PUT",
+			headers: {
+				authorization: `bearer ${localStorage.getItem("usedcarToken")}`,
+			},
+		})
+			.then((res) => res.json())
+			// .then(res => {
+			//     if (res.status === 401 || res.status === 403) {
+			//         return logOut();
+			//     }
+			//     return res.json()
+			// })
+			.then((data) => {
+				console.log(data);
+				if (data.modifiedCount > 0) {
+					refetch();
 					toast.success(`Addvertise deleted successfully`);
-                    
-                }
-            })
-    }
+				}
+			});
+	};
 
 	if (isLoading) {
 		return <Loading></Loading>;
@@ -94,7 +91,7 @@ const MyProduct = () => {
 							<th>Price</th>
 							<th>Status</th>
 							<th>Add</th>
-							
+
 							<th>Delete</th>
 						</tr>
 					</thead>
@@ -110,7 +107,7 @@ const MyProduct = () => {
 									</div>
 								</td>
 								<td>{product.name}</td>
-								
+
 								<td>{product.price}</td>
 
 								<td>
@@ -150,7 +147,6 @@ const MyProduct = () => {
 					</tbody>
 				</table>
 			</div>
-			
 		</div>
 	);
 };

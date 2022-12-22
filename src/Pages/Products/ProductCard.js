@@ -1,13 +1,13 @@
 import { getRoles } from "@testing-library/react";
-import React, { useContext,} from "react";
+import React, { useContext } from "react";
 import { FaCheckCircle } from "react-icons/fa";
-import img from '../../assets/images/people1.png'
+import img from "../../assets/images/people1.png";
 import { AuthContext } from "../../context/AuthProvider";
 import useBuyer from "../../hook/useBuyer";
 
 const ProductCard = ({ item, setAddProducts }) => {
-	const {user} = useContext(AuthContext)
-	const [isBuyer] = useBuyer(user?.email)
+	const { user } = useContext(AuthContext);
+	const [isBuyer] = useBuyer(user?.email);
 	// const [isSeller] = useBuyer(user?.email)
 	// const [verified, setVerified] = useState(false);
 
@@ -23,14 +23,13 @@ const ProductCard = ({ item, setAddProducts }) => {
 	} = item;
 
 	console.log(item);
-	
 
 	// useEffect((email) => {
-    //     fetch(`http://localhost:5000/verifiedSeller?email=${email}`)
-    //         .then(res => {
-    //             setVerified(res.data);
-    //         })
-    // }, [])
+	//     fetch(` https://used-car-server.vercel.app/verifiedSeller?email=${email}`)
+	//         .then(res => {
+	//             setVerified(res.data);
+	//         })
+	// }, [])
 
 	return (
 		<div className="card w-96 bg-base-100 shadow-xl">
@@ -55,11 +54,13 @@ const ProductCard = ({ item, setAddProducts }) => {
 				<div className="card-actions justify-between mt-5 mb-5">
 					<div className="avatar gap-2">
 						<div className="w-10 h-10 rounded-full">
-							<img src={img} alt='/'/>
+							<img src={img} alt="/" />
 						</div>
 						<div>
 							<h2>{role[1]}</h2>
-							<h2><FaCheckCircle className="text-blue-500"></FaCheckCircle></h2>
+							<h2>
+								<FaCheckCircle className="text-blue-500"></FaCheckCircle>
+							</h2>
 							{/* {
                                 isSeller && verified && <h2><FaCheckCircle className="text-blue-500"></FaCheckCircle></h2>
                             } */}
@@ -67,17 +68,16 @@ const ProductCard = ({ item, setAddProducts }) => {
 					</div>
 
 					<div>
-						{
-							isBuyer && 
+						{isBuyer && (
 							<label
-							disabled={role.length ===0} 
-							onClick={() => setAddProducts(item)}
-							htmlFor="booking-modal"
-							className="btn btn-error bg-gradient-to-r from-error to-secondary text-white"
-						>
-							Book Now
-						</label>
-						}
+								disabled={role.length === 0}
+								onClick={() => setAddProducts(item)}
+								htmlFor="booking-modal"
+								className="btn btn-error bg-gradient-to-r from-error to-secondary text-white"
+							>
+								Book Now
+							</label>
+						)}
 					</div>
 				</div>
 			</div>

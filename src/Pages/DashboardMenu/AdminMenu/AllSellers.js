@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState } from "react";
 
 import toast from "react-hot-toast";
@@ -6,14 +5,13 @@ import Seller from "./Seller";
 
 const AllSellers = () => {
 	const [allSeller, setAllSeller] = useState([]);
-//  get all sellers
+	//  get all sellers
 	useEffect(() => {
-		fetch("http://localhost:5000/users/seller")
+		fetch(" https://used-car-server.vercel.app/users/seller")
 			.then((res) => res.json())
 			// .then(data => console.log(data))
 			.then((data) => setAllSeller(data));
 	}, []);
-
 
 	// console.log(allSeller);
 	// delete specific seller
@@ -30,19 +28,17 @@ const AllSellers = () => {
 					// refetch();
 					toast.success(`Seller deleted successfully`);
 					const reamaining = allSeller.filter((odr) => odr._id !== id);
-					
+
 					setAllSeller(reamaining);
 				}
-				
+
 				console.log(data);
 			});
-			
 	};
-
 
 	//  verify seller
 	const handleMakeVerify = (id) => {
-		fetch(` http://localhost:5000/users/seller/${id}`, {
+		fetch(`  https://used-car-server.vercel.app/users/seller/${id}`, {
 			method: "PUT",
 			headers: {
 				authorization: `bearer ${localStorage.getItem("usedcarToken")}`,
@@ -55,8 +51,6 @@ const AllSellers = () => {
 					toast.success("verify successfull");
 					// const reamaining = allSeller.filter((veri) => veri._id !== id);
 					// setAllSeller();
-					
-
 				}
 			});
 	};
@@ -80,21 +74,15 @@ const AllSellers = () => {
 						</tr>
 					</thead>
 					<tbody>
-						
 						{allSeller?.map((sale, i) => (
 							<Seller
-							
 								i={i}
 								key={sale._id}
 								sale={sale}
-								
 								handleDeleteSeller={handleDeleteSeller}
 								handleMakeVerify={handleMakeVerify}
 							></Seller>
-							
 						))}
-					
-						
 					</tbody>
 				</table>
 			</div>

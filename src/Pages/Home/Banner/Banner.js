@@ -6,12 +6,12 @@ const Banner = () => {
 		<section className="dark:bg-gray-800 dark:text-gray-100">
 			<div className="container flex flex-col justify-center p-6 mx-auto sm:py-12 lg:py-24 lg:flex-row lg:justify-between">
 				<div className="flex flex-col justify-center p-6 text-center rounded-sm lg:max-w-md xl:max-w-lg lg:text-left">
-					<h1 className="text-5xl font-bold leading-none sm:text-6xl">
+					<h1 className="text-5xl font-serif font-bold leading-none sm:text-6xl">
                     Exclusive
                     second-hand car's mega shop
 					
 					</h1>
-					<p className="mt-6 mb-8 text-lg sm:mb-12">
+					<p className="mt-6 mb-8 text-lg sm:mb-12 font-serif">
 						We are selling all type of second-hand best qulity,
 						<br className="hidden md:inline lg:hidden" />
 						and popular brand's car 

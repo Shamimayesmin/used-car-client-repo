@@ -15,7 +15,7 @@ const Category = () => {
 	}, []);
 	return (
 		<section className="container mx-auto">
-			<h2 className="text-center text-2xl text-red-600 font-bold">
+			<h2 className="text-center font-serif text-2xl text-red-600 font-bold">
 					All Categories
 				</h2>
 				<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 p-3 mt-10 mb-20">

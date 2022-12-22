@@ -3,20 +3,20 @@ import React from "react";
 const Footer = () => {
 	return (
 		<div>
-			<footer className="footer p-10 bg-black text-white">
+			<footer className="footer p-10 bg-black text-white rounded-lg">
 				<div>
 					<span className="footer-title">Services</span>
-					<a className="link link-hover">Branding</a>
-					<a className="link link-hover">Design</a>
-					<a className="link link-hover">Marketing</a>
-					<a className="link link-hover">Advertisement</a>
+					<a href="/" className="link link-hover">Branding</a>
+					<a href='/' className="link link-hover">Design</a>
+					<a href="/" className="link link-hover">Marketing</a>
+					<a href="/" className="link link-hover">Advertisement</a>
 				</div>
 				<div>
 					<span className="footer-title">Company</span>
-					<a className="link link-hover">About us</a>
-					<a className="link link-hover">Contact</a>
-					<a className="link link-hover">Jobs</a>
-					<a className="link link-hover">Press kit</a>
+					<a href="/" className="link link-hover">About us</a>
+					<a href="/" className="link link-hover">Contact</a>
+					<a href="/" className="link link-hover">Jobs</a>
+					
 				</div>
 				<div>
 					<span className="footer-title">Social</span>

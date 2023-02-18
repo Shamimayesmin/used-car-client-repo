@@ -7,7 +7,7 @@ import useToken from "../../hook/useToken";
 
 const Login = () => {
     const { signin,signInWithGoogle,loading,
-        setLoading} = useContext(AuthContext);
+        setLoading,setUser} = useContext(AuthContext);
 
         const [error, setError] = useState("");
 
@@ -52,16 +52,34 @@ const Login = () => {
 	};
 
 
-    const handleGoogleSignIn=()=>{
-        signInWithGoogle()
-        .then(result =>{
-            const user = result.user
-            console.log(user);
-            setLogingUserEmail(user?.email)
-			// setAuthToken(result.user)
-			navigate(from,{replace:true})
-        })
-    }
+    const handleGoogleSignIn = () => {
+		signInWithGoogle().then((result) => {
+			const user = result.user;
+			console.log(user);
+			
+			setUser(user)
+			// get token
+			saveUser(user.displayName, user.email ,'buyer')
+			
+			// navigate(from, { replace: true });
+		});
+	};
+    
+	const saveUser = (name, email, role) => {
+		const user = { name, email, role };
+		fetch("https://used-car-server.vercel.app/users", {
+			method: "POST",
+			headers: {
+				"content-type": "application/json",
+			},
+			body: JSON.stringify(user),
+		})
+			.then((res) => res.json())
+			.then((data) => {
+				// console.log('save user',data);
+				setLogingUserEmail(email);
+			});
+	};
 
 	return (
         <div className="h-[800px] flex justify-center items-center">

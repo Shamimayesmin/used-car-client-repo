@@ -57,12 +57,7 @@ const MyProduct = () => {
 			},
 		})
 			.then((res) => res.json())
-			// .then(res => {
-			//     if (res.status === 401 || res.status === 403) {
-			//         return logOut();
-			//     }
-			//     return res.json()
-			// })
+			
 			.then((data) => {
 				console.log(data);
 				if (data.modifiedCount > 0) {

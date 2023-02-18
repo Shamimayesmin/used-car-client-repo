@@ -25,7 +25,7 @@ const AllSellers = () => {
 			.then((res) => res.json())
 			.then((data) => {
 				if (data.deletedCount > 0) {
-					// refetch();
+					
 					toast.success(`Seller deleted successfully`);
 					const reamaining = allSeller.filter((odr) => odr._id !== id);
 

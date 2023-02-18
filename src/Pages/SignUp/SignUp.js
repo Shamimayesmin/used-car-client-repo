@@ -41,7 +41,7 @@ const SignUp = () => {
 		const email = form.email.value;
 		const password = form.password.value;
 		const role = form.role.value;
-		console.log(name, password, email, role);
+		// console.log(name, password, email, role);
 
 		createUser(email, password)
 			.then((result) => {
@@ -80,7 +80,7 @@ const SignUp = () => {
 			
 			setUser(user)
 			// get token
-			saveUser(user.displayName, user.email , "user")
+			saveUser(user.displayName, user.email , "buyer")
 			
 			// navigate(from, { replace: true });
 		});

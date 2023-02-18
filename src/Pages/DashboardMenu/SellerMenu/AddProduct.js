@@ -80,7 +80,7 @@ const AddProduct = () => {
 	}
 	return (
 		<div className="w-96 mx-auto rounded-lg p-7 shadow-2xl m-20">
-			<h2 className="text-3xl">Add A Doctor</h2>
+			<h2 className="text-3xl">Add A Product</h2>
 			<form onSubmit={handleSubmit(handleAddProduct)}>
 				<div className="form-control w-full max-w-xs">
 					<label className="label">

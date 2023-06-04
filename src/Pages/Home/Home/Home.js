@@ -5,6 +5,7 @@ import Update from '../../Shared/Update/Update';
 import Banner from '../Banner/Banner';
 import Category from '../Category/Category';
 import Other from '../Other/Other';
+import NewFeture from '../NewFeture/NewFeture';
 
 const Home = () => {
     return (
@@ -15,6 +16,7 @@ const Home = () => {
             <Advertise></Advertise>
             <Review></Review>
             <Update></Update>
+            <NewFeture/>
             
             
         </div>

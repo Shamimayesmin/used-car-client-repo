@@ -80,7 +80,7 @@ const SignUp = () => {
 			
 			setUser(user)
 			// get token
-			saveUser(user.displayName, user.email , "buyer")
+			saveUser(user.displayName, user.email ,user.role)
 			
 			// navigate(from, { replace: true });
 		});

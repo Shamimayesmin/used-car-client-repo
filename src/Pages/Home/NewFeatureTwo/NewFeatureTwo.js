@@ -6,7 +6,7 @@ const NewFeatureTwo = () => {
 			<div className="container flex flex-col mx-auto lg:flex-row">
 				<div
 					className="w-full lg:w-1/3"
-					style="background-image: url('https://source.unsplash.com/random/640x480'); background-position: center center; background-size: cover;"
+					style={{}}
 				></div>
 				<div className="flex flex-col w-full p-6 lg:w-2/3 md:p-8 lg:p-12">
 					<svg

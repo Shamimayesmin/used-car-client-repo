@@ -6,6 +6,7 @@ import Banner from '../Banner/Banner';
 import Category from '../Category/Category';
 import Other from '../Other/Other';
 import NewFeture from '../NewFeture/NewFeture';
+import NewFeatureTwo from '../NewFeatureTwo/NewFeatureTwo';
 
 const Home = () => {
     return (
@@ -15,6 +16,7 @@ const Home = () => {
             <Other></Other>
             <Advertise></Advertise>
             <Review></Review>
+            <NewFeatureTwo/>
             <Update></Update>
             <NewFeture/>
             

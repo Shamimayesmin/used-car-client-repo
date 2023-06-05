@@ -6,7 +6,7 @@ const NewFeture = () => {
 			<div className="container mx-auto space-y-12">
 				<div className="flex flex-col overflow-hidden rounded-md shadow-sm lg:flex-row">
 					<img
-						src="https://source.unsplash.com/640x480/?1"
+						src="https://st3.depositphotos.com/10820522/36256/i/600/depositphotos_362569560-stock-photo-red-luxury-model-sport-car.jpg"
 						alt=""
 						className="h-80 dark:bg-gray-500 aspect-video"
 					/>

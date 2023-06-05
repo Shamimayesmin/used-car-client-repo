@@ -28,7 +28,7 @@ const NewFeture = () => {
 				</div>
 				<div className="flex flex-col overflow-hidden rounded-md shadow-sm lg:flex-row-reverse">
 					<img
-						src="https://source.unsplash.com/640x480/?2"
+						src="https://www.financialexpress.com/wp-content/uploads/2020/06/Tesla-Model_S-2017-660.jpg"
 						alt=""
 						className="h-80 dark:bg-gray-500 aspect-video"
 					/>
@@ -50,7 +50,7 @@ const NewFeture = () => {
 				</div>
 				<div className="flex flex-col overflow-hidden rounded-md shadow-sm lg:flex-row">
 					<img
-						src="https://source.unsplash.com/640x480/?3"
+						src="https://www.drivespark.com/images/2022-05/bmw-m4-csl-9.jpg"
 						alt=""
 						className="h-80 dark:bg-gray-500 aspect-video"
 					/>

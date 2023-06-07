@@ -1,6 +1,6 @@
 import React from "react";
 
-const NewFeture = () => {
+const GoAnyWhere = () => {
 	return (
 		<section className="p-4 lg:p-8 dark:bg-gray-800 dark:text-gray-100">
 			<div className="container mx-auto space-y-12">
@@ -65,4 +65,4 @@ const NewFeture = () => {
 	);
 };
 
-export default NewFeture;
+export default GoAnyWhere;

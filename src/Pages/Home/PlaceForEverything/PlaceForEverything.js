@@ -1,6 +1,6 @@
 import React from "react";
 
-const NewFeatureTwo = () => {
+const PlaceForEverything = () => {
 	return (
 		<section className="dark:bg-gray-800 dark:text-gray-300">
 			<div className="container flex flex-col mx-auto lg:flex-row">
@@ -41,4 +41,4 @@ const NewFeatureTwo = () => {
 	);
 };
 
-export default NewFeatureTwo;
+export default PlaceForEverything;

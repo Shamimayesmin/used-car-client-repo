@@ -8,7 +8,7 @@ import Category from '../Category/Category';
 import PlaceForEverything from '../PlaceForEverything/PlaceForEverything';
 import GoAnyWhere from '../GoAnyWhere/GoAnyWhere';
 import Other from '../Other/Other';
-// import Feature from '../Feature/Feature';
+import Feature from '../Feature/Feature';
 
 
 const Home = () => {
@@ -20,7 +20,7 @@ const Home = () => {
             <Other></Other>
             <Advertise></Advertise>
             <PlaceForEverything/>
-            {/* <Feature/> */}
+            <Feature/>
             <Review></Review>
              
             <Update></Update>

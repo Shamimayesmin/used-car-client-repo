@@ -1,5 +1,6 @@
 import React from "react";
 import img from '../../../assets/images/bannercar.jpg'
+import { Link } from "react-router-dom";
 
 const Banner = () => {
 	return (
@@ -24,13 +25,13 @@ const Banner = () => {
 						>
 							Visit
 						</a>
-						<a
+						<Link to='/signup'
 							rel="noopener noreferrer"
-							href="/"
+							
 							className="px-8 py-3 text-lg font-semibold border rounded dark:border-gray-100 bg-red-700 text-white hover:bg-red-500"
 						>
 							Sign Up
-						</a>
+						</Link>
 					</div>
 				</div>
 				<div className="flex items-center justify-center p-6 mt-8 lg:mt-0 h-72 sm:h-80 lg:h-96 xl:h-112 2xl:h-128">

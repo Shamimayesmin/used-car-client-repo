@@ -21,7 +21,7 @@ const Advertise = () => {
 	}
 	return (
 		<section>
-			<div className="justify-center mx-auto rounded-lg my-20">
+			<div className=" container justify-center mx-auto rounded-lg my-20">
 				<h3 className="text-center text-2xl text-red-600 font-bold m-10 font-serif">
 					Advertised Products
 				</h3>

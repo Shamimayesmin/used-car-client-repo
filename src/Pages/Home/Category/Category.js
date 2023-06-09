@@ -1,10 +1,8 @@
 import React, { useEffect, useState } from "react";
-import { useActionData } from "react-router-dom";
 import CategoryCard from "./CategoryCard";
 
 const Category = () => {
-	// const data = useActionData()
-	// console.log(data);
+	
 	const [categories, setCategory] = useState([]);
 
 	useEffect(() => {

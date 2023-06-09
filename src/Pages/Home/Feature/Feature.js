@@ -102,7 +102,7 @@ const Feature = () => {
 			>
 				<div className="hero-overlay bg-opacity-60"></div>
 				<div className="hero-content text-center text-neutral-content">
-					<div className="max-w-md">
+					<div data-aos="zoom-in" data-aos-duration="3000"  className="max-w-xl">
 						<h1 className="mb-5 text-5xl font-bold">Designed for Efficiency</h1>
 						<p className="mb-5">
 						Model Y has a drag coefficient of just .24 Cd, the lowest of any production SUV on the planet. Refined aerodynamic elements work together with new wheels and tires to help you travel farther, with sharper handling and better ride comfort.

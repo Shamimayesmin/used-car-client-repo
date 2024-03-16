@@ -8,7 +8,7 @@ const GoAnyWhere = () => {
 					<img
 						src="https://st3.depositphotos.com/10820522/36256/i/600/depositphotos_362569560-stock-photo-red-luxury-model-sport-car.jpg"
 						alt=""
-						className="h-80 dark:bg-gray-500 aspect-video"
+						className="h-80 dark:bg-gray-500 aspect-video rounded-md"
 					/>
 					<div data-aos="fade-left" data-aos-duration="3000" className="flex flex-col justify-center flex-1 p-6 dark:bg-gray-900">
 						
@@ -27,7 +27,7 @@ const GoAnyWhere = () => {
 					<img
 						src="https://www.financialexpress.com/wp-content/uploads/2020/06/Tesla-Model_S-2017-660.jpg"
 						alt=""
-						className="h-80 dark:bg-gray-500 aspect-video"
+						className="h-80 dark:bg-gray-500 aspect-video rounded-md"
 					/>
 					<div data-aos="fade-right" data-aos-duration="3000" className="flex flex-col justify-center flex-1 p-6 dark:bg-gray-900">
 						
@@ -44,7 +44,7 @@ const GoAnyWhere = () => {
 					<img
 						src="https://www.drivespark.com/images/2022-05/bmw-m4-csl-9.jpg"
 						alt=""
-						className="h-80 dark:bg-gray-500 aspect-video"
+						className="h-80 dark:bg-gray-500 aspect-video rounded-md"
 					/>
 					<div data-aos="fade-left" data-aos-duration="3000" className="flex flex-col justify-center flex-1 p-6 dark:bg-gray-900">
 						

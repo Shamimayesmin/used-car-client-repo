@@ -5,15 +5,17 @@ const PlaceForEverything = () => {
 		<section className="dark:bg-gray-800 dark:text-gray-300 container">
 			<div className="container flex flex-col mx-auto lg:flex-row">
 				<div
-					className="w-full lg:w-1/3"
+					className="w-full lg:w-1/3 object-fill"
 					style={{
-						backgroundImage: "url('https://images.statusfacebook.com/profile_pictures/cars/cars_profile_pictures_04.jpg')",
+						backgroundImage:
+							"url('https://images.statusfacebook.com/profile_pictures/cars/cars_profile_pictures_04.jpg')",
 						backgroundSize: "cover",
 						backgroundRepeat: "no-repeat",
 						backgroundPosition: "center",
+						borderRadius:"10px"
 					}}
 				></div>
-				<div className="flex bg-slate-50 flex-col w-full p-6 lg:w-2/3 md:p-8 lg:p-12">
+			<div className="flex bg-slate-50 flex-col w-full p-6 lg:w-[900px] md:p-8 lg:p-10">
 					<svg
 						xmlns="http://www.w3.org/2000/svg"
 						viewBox="0 0 20 20"
@@ -26,11 +28,24 @@ const PlaceForEverything = () => {
 							clipRule="evenodd"
 						></path>
 					</svg>
-					<h2 data-aos="fade-left" data-aos-duration="3000" className="text-3xl font-semibold leading-none">
-                    A Place For Everything
+					<h2
+						data-aos="fade-left"
+						data-aos-duration="3000"
+						className="text-3xl font-semibold leading-none"
+					>
+						A Place For Everything
 					</h2>
-					<p data-aos="fade-left" data-aos-duration="1500"  className="mt-4 mb-8 text-sm">
-                    Model Y provides maximum versatility—able to carry 7 passengers and their cargo. Each second row seat folds flat independently, creating flexible storage for skis, furniture, luggage and more. The liftgate opens to a low trunk floor that makes loading and unloading easy and quick. Chat with a Tesla Advisor to learn more about Model Y or schedule a demo drive today.
+					<p
+						data-aos="fade-left"
+						data-aos-duration="1500"
+						className="mt-4 mb-8 text-sm"
+					>
+						Model Y provides maximum versatility—able to carry 7 passengers and
+						their cargo. Each second row seat folds flat independently, creating
+						flexible storage for skis, furniture, luggage and more. The liftgate
+						opens to a low trunk floor that makes loading and unloading easy and
+						quick. Chat with a Tesla Advisor to learn more about Model Y or
+						schedule a demo drive today.
 					</p>
 					<button className="self-start px-10 bg-red-600 py-3 text-lg font-medium rounded-3xl text-white dark:bg-violet-400 dark:text-gray-900">
 						Get started

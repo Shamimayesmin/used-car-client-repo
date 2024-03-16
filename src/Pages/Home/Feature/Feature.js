@@ -84,7 +84,7 @@ const Feature = () => {
 							<img
 								src="https://stimg.cardekho.com/images/carexteriorimages/630x420/BMW/X3/9776/1680242353464/front-left-side-47.jpg?tr=w-150"
 								alt=""
-								className="rounded-lg shadow-lg dark:bg-gray-500 aspect-video sm:min-h-96"
+								className="rounded-lg shadow-lg dark:bg-gray-500 aspect-video h-full w-full"
 							/>
 						</div>
 					</div>
